@@ -8,7 +8,7 @@
                     <a href="{{ route('dashboard') }}">
                         <x-application-mark class="block h-9 w-auto" />
                     </a>
-                    <div class=" ml-2">
+                    <div class="rtl:mr-2 ml-2 inline-flex">
                         <button type="button" x-bind:class="darkMode ? 'bg-indigo-500' : 'bg-gray-200'"
                                 x-on:click="darkMode = !darkMode"
                                 class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -37,6 +37,15 @@
                                         </svg>
                                     </span>
                                 </span>
+                        </button>
+                    </div>
+                    <div class=" ml-2">
+                        <button type="button" class="inline-flex">
+                            @if (app()->getLocale() == 'en')
+                                <a href="{{ route('locale.switch', ['locale' => 'ar']) }}" class="font-medium text-base text-gray-800 dark:text-gray-100">عربي</a>
+                            @else   
+                                <a href="{{ route('locale.switch', ['locale' => 'en']) }}" class="font-medium text-base text-gray-800 dark:text-gray-100"">EN</a>
+                            @endif
                         </button>
                     </div>
                 </div>
