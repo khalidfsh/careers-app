@@ -1,11 +1,10 @@
-// https://aka.ms/devcontainer.json
 {
 	"name": "Existing Docker Compose (Extend)",
 	"dockerComposeFile": [
 		"docker-compose.yml"
 	],
-	"workspaceFolder": "/workspace",
 	"service": "app",
+	"workspaceFolder": "/workspace",
 	"shutdownAction": "stopCompose",
 	"extensions": [
 		"editorconfig.editorconfig",
@@ -27,14 +26,12 @@
 			"version": "latest"
 		}
 	},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
-		80
+		8080
 	],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "cp .env.example .env && composer install --no-dev&& php artisan key:generate && inpm install && npm run development",
+	"postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && npm install && npm run dev",
 	"portsAttributes": {
-		"80": {
+		"8080": {
 			"label": "HTTP"
 		}
 	}

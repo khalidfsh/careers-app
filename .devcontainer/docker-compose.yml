@@ -1,11 +1,13 @@
 version: "3"
 services:
   app:
-    build: ./docker/app
-    volumes:
-      - ../:/workspace:cached
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
     ports:
-      - 80:80
+      - "8080:80"
+    volumes:
+      - ..:/workspace
     init: true
     depends_on:
       - db
@@ -15,7 +17,7 @@ services:
         PHP_EXTENSION_PGSQL: 1
         PHP_EXTENSION_PDO_PGSQL: 1
         APACHE_DOCUMENT_ROOT: /workspace/public
-  db:
+  mysql:
     image: mysql:5.7
     hostname: db
     restart: always
