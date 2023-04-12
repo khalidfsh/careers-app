@@ -1,10 +1,10 @@
 {
-	"name": "Existing Docker Compose (Extend)",
+	"name": "codespaces-laravel",
 	"dockerComposeFile": [
 		"docker-compose.yml"
 	],
-	"service": "app",
 	"workspaceFolder": "/workspace",
+	"service": "app",
 	"shutdownAction": "stopCompose",
 	"extensions": [
 		"editorconfig.editorconfig",
@@ -26,13 +26,15 @@
 			"version": "latest"
 		}
 	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
 		80
 	],
-	"postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && npm install && npm run dev",
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && npm install && npm run development",
 	"portsAttributes": {
 		"80": {
 			"label": "HTTP"
 		}
-	}
+	},
 }

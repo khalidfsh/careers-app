@@ -1,22 +1,20 @@
 version: "3"
 services:
   app:
-    build:
-      context: .
-      dockerfile: .devcontainer/docker/app/Dockerfile
+    build: ./docker/app
+    volumes:
+      - ../:/workspace:cached
     ports:
       - 80:80
-    volumes:
-      - ../:/workspace
     init: true
     depends_on:
       - db
     environment:
-        APP_ENV: local
-        PHP_EXTENSION_XDEBUG: 1
-        PHP_EXTENSION_PGSQL: 1
-        PHP_EXTENSION_PDO_PGSQL: 1
-        APACHE_DOCUMENT_ROOT: /workspace/public
+      APP_ENV: local
+      PHP_EXTENSION_XDEBUG: 1
+      PHP_EXTENSION_PGSQL: 1
+      PHP_EXTENSION_PDO_PGSQL: 1
+      APACHE_DOCUMENT_ROOT: /workspace/public
   mysql:
     image: mysql:5.7
     hostname: db
@@ -24,15 +22,7 @@ services:
     ports:
       - 3306:3306
     environment:
-        MYSQL_ROOT_PASSWORD: toor
-        MYSQL_DATABASE: careers_app
-        MYSQL_USER: sail
-        MYSQL_PASSWORD: password
-  # redis:
-  #   image: redis:6-alpine
-  #   ports:
-  #     - 6379:6379
-  # mailhog:
-  #   image: mailhog/mailhog
-  #   ports:
-  #     - 8025:8025
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: careers_app
+      MYSQL_USER: sail
+      MYSQL_PASSWORD: password
