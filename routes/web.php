@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocaleController;
-
+use App\Http\Controllers\JobsController;
+use App\Http\Livewire\JobList;
+use App\Http\Livewire\JobManagement;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,4 +31,20 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('jobs', [JobsController::class, 'index'])->name('jobs');
+    Route::get('jobs/{job}', [JobsController::class, 'show'])->name('job');
+
+    Route::get('admin/jobs', function () {
+        return view('admin.jobs.index');
+    })->name('admin.jobs');
+    
+    Route::get('resume', function () {
+        return view('resume.dashboard');
+    })->name('resume');
 });
+
+// Route::get('/jobs', JobList::class)->name('jobs');
+// Route::get('/jobs/manage', JobManagement::class)->name('jobs.manage');
+
+

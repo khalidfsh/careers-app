@@ -1,0 +1,46 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    'resume' => 'Resume',
+    'resume_description' => 'Please update your resume data.',
+    'upload' => 'Upload Resume',
+    'general' => 'General Data',
+    'general_description' => 'Please enter your basic personal data.',
+    'full_name' => 'Full Name',
+    'full_name_error' => 'Full Name field is required.',
+    'phone' => 'Phone',
+    'phone_error' => 'Phone field is required.',
+    'nationality' => 'Nationality',
+    'nationality_error' => 'Please specify your nationality.',
+    'date_of_birth' => 'Date of Birth',
+    'date_of_birth_error' => 'Date of Birth field is required.',
+    'address' => 'Address',
+    'address_error' => 'Address field is required.',
+    'qualification_name' => 'Qualifications',
+    'qualification_description' => 'Please enter your qualifications.',
+    'qualification' => [
+        'create' => 'Add Qualification',
+        'title' => 'Title',
+        'select' => 'Select Title',
+        'types' => [
+            'high_school' => 'High School',
+            'diploma' => 'Diploma',
+            'bachelor' => 'Bachelor',
+            'master' => 'Master',
+            'phd' => 'PhD',
+        ],
+        'title_error' => 'Title field is required.',
+        'institution' => 'Institute',
+        'institution_error' => 'Institute field is required.',
+        'start_date' => 'Start Date',
+        'start_date_error' => 'Start Date field is required.',
+        'end_date' => 'End Date',
+        'end_date_error' => 'End Date field is required.',
+        'description' => 'Description',
+        'description_error' => 'Description field is required.',
+        'grade' => 'Grade',
+        'grade_error' => 'Grade field is required.',
+    ],
+];
