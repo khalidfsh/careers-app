@@ -3,11 +3,11 @@ services:
   app:
     build:
       context: .
-      dockerfile: .devcontainer/Dockerfile
+      dockerfile: .devcontainer/docker/app/Dockerfile
     ports:
-      - "8080:80"
+      - 80:80
     volumes:
-      - ..:/workspace
+      - ../:/workspace
     init: true
     depends_on:
       - db

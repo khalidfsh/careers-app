@@ -27,11 +27,11 @@
 		}
 	},
 	"forwardPorts": [
-		8080
+		80
 	],
 	"postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && npm install && npm run dev",
 	"portsAttributes": {
-		"8080": {
+		"80": {
 			"label": "HTTP"
 		}
 	}
