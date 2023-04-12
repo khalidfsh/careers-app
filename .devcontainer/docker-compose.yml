@@ -6,7 +6,9 @@ services:
       - ../:/workspace:cached
     ports:
       - 80:80
-    tty: true
+    init: true
+    depends_on:
+      - db
     environment:
         APP_ENV: local
         PHP_EXTENSION_XDEBUG: 1
@@ -14,19 +16,21 @@ services:
         PHP_EXTENSION_PDO_PGSQL: 1
         APACHE_DOCUMENT_ROOT: /workspace/public
   db:
-    image: postgres:13
-    restart: unless-stopped
+    image: mysql:5.7
+    hostname: db
+    restart: always
     ports:
-        - 5432:5432
+      - 3306:3306
     environment:
-        POSTGRES_DB: laravel
-        POSTGRES_USER: laravel
-        POSTGRES_PASSWORD: laravel
-  redis:
-    image: redis:6-alpine
-    ports:
-      - 6379:6379
-  mailhog:
-    image: mailhog/mailhog
-    ports:
-      - 8025:8025
+        MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+        MYSQL_DATABASE: '${DB_DATABASE}'
+        MYSQL_USER: '${DB_USERNAME}'
+        MYSQL_PASSWORD: '${DB_PASSWORD}'
+  # redis:
+  #   image: redis:6-alpine
+  #   ports:
+  #     - 6379:6379
+  # mailhog:
+  #   image: mailhog/mailhog
+  #   ports:
+  #     - 8025:8025

@@ -22,15 +22,20 @@
 	"settings": {
 		"#terminal.integrated.shell.linux": "/bin/bash"
 	},
+	"features": {
+		"docker-from-docker": {
+			"version": "latest"
+		}
+	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
 		80
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && yarn install && yarn run development",
+	"postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && inpm install && npm run development",
 	"portsAttributes": {
 		"80": {
 			"label": "HTTP"
 		}
-	},
+	}
 }
