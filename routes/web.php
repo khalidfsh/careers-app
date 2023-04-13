@@ -21,18 +21,18 @@ Route::get('/', function () {
 });
 
 Route::get('/locale/switch', [LocaleController::class, 'switch'])->name('locale.switch');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
+Route::get('jobs', [JobsController::class, 'index'])->name('jobs');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
-    Route::get('jobs', [JobsController::class, 'index'])->name('jobs');
+   
     Route::get('jobs/{job}', [JobsController::class, 'show'])->name('job');
 
     Route::get('admin/jobs', function () {

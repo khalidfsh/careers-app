@@ -36,9 +36,15 @@
     "Import": "استيراد",
     "Export": "تصدير",
     "Search": "بحث",
+    "Govern and Manage": "التحكم والإدارة",
+    "Import and Export": "الاستيراد والتصدير",
     "Jobs Mangment" : "إدارة الوظائف",
     "Jobs" : "الوظائف",
     "Resume" : "السيرة الذاتية",
+    "Welcome" : "مرحبًا",
+    "Welcome guest!" : "مرحبًا بالضيف!",
+    "Home" : "الرئيسية",
+
     "Welcome to your HHC Careers application!" : "مرحبا بك في تطبيق HHC Careers الخاص بك!",
     "Create a new team to collaborate with others on projects.": "أنشئ فريقًا جديدًا للتعاون مع الآخرين في المشاريع.",
     "Create Account": "إنشاء حساب",
@@ -194,5 +200,10 @@
     "You may delete any of your existing tokens if they are no longer needed.": "يمكنك حذف أي من الرموز المميزة الموجودة لديك إذا لم تعد هناك حاجة إليها.",
     "You may not delete your personal team.": "لا يمكنك حذف فريقك الشخصي.",
     "You may not leave a team that you created.": "لا يمكنك مغادرة الفريق الذي أنشأته.",
-    "Your email address is unverified.": "لم يتم التحقق من عنوان بريدك الإلكتروني."
+    "Your email address is unverified.": "لم يتم التحقق من عنوان بريدك الإلكتروني.",
+    "Create your resume in minutes with our resume builder. or just auto generat from your resume! You’ll get a professional resume that will help you land your dream job.": "قم بإنشاء سيرتك الذاتية في دقائق مع مُنشئ سيرتك الذاتية. أو فقط أنشئها تلقائيًا من سيرتك الذاتية! ستحصل على سيرة ذاتية محترفة تساعدك على الحصول على وظيفة حلمك.",
+    "Find your dream job. Browse our job listings and apply for your dream job.": "ابحث عن وظيفة حلمك. تصفح قائمة الوظائف الخاصة بنا وقدم طلبك لوظيفة حلمك.",
+    "We are the best job board in the world.": "نحن أفضل موقع للوظائف في العالم.",
+    "Manage your jobs and resumes. You can update your jobs and resumes and manage them.": "إدارة الوظائف والسير الذاتية الخاصة بك. يمكنك تحديث الوظائف والسير الذاتية الخاصة بك وإدارتها.",
+    "Extract data of users and extract data of resumes and jobs. You can extract data of users and extract data of resumes and jobs." : "استخراج بيانات المستخدمين واستخراج بيانات السير الذاتية والوظائف. يمكنك استخراج بيانات المستخدمين واستخراج بيانات السير الذاتية والوظائف."
 }

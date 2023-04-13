@@ -15,9 +15,6 @@
         </div>
         <div class="col-span-6 sm:col-span-4">
             <x-label for="phone" value="{{ __('resume.phone') }}" />
-            {{-- <select id="phone_code" wire:model.defer="state.phone_code" class="mt-1 block w-1/4">
-                <option value="1">🇸🇦+966</option>
-            </select> --}}
             <x-select class="" id="phone_code"
                         name="phone_code"
                         :options="$phoneCodes"
@@ -32,7 +29,6 @@
             <x-input-error for="nationality" class="mt-2" />
         </div>
         <!-- Date of birth -->
-        {{-- Date type input --}}
         <div class="col-span-6 sm:col-span-4">
             <x-label for="date_of_birth" value="{{ __('resume.date_of_birth')}}" />
             <x-input id="date_of_birth" type="date" class="mt-1 block w-full" wire:model.defer="state.date_of_birth" autocomplete="date_of_birth" />
