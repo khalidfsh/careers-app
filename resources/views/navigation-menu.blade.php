@@ -63,6 +63,11 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin/users')">
+                        {{ __('Users Mangment') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('resume') }}" :active="request()->routeIs('resume')">
                         {{ __('Resume') }}
                     </x-nav-link>
@@ -220,6 +225,20 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('admin.jobs') }}" :active="request()->routeIs('admin.jobs')">
+                {{ __('Jobs Mangment') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.jobs') }}" :active="request()->routeIs('admin.users')">
+                {{ __('Users Managment') }}
+            </x-responsive-nav-link>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link href="{{ route('resume') }}" :active="request()->routeIs('resume')">
+                {{ __('Resume') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('jobs') }}" :active="request()->routeIs('jobs')">
+                {{ __('Jobs') }}
             </x-responsive-nav-link>
         </div>
 

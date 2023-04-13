@@ -26,6 +26,9 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('jobs', [JobsController::class, 'index'])->name('jobs');
+Route::get('resume', function () {
+    return view('resume.dashboard');
+})->name('resume');
 
 Route::middleware([
     'auth:sanctum',
@@ -38,10 +41,11 @@ Route::middleware([
     Route::get('admin/jobs', function () {
         return view('admin.jobs.index');
     })->name('admin.jobs');
+    Route::get('admin/users', function () {
+        return view('admin.jobs');
+    })->name('admin.users');
     
-    Route::get('resume', function () {
-        return view('resume.dashboard');
-    })->name('resume');
+
 });
 
 // Route::get('/jobs', JobList::class)->name('jobs');
