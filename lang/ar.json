@@ -207,5 +207,7 @@
     "Manage your jobs and resumes. You can update your jobs and resumes and manage them.": "إدارة الوظائف والسير الذاتية الخاصة بك. يمكنك تحديث الوظائف والسير الذاتية الخاصة بك وإدارتها.",
     "Extract data of users and extract data of resumes and jobs. You can extract data of users and extract data of resumes and jobs." : "استخراج بيانات المستخدمين واستخراج بيانات السير الذاتية والوظائف. يمكنك استخراج بيانات المستخدمين واستخراج بيانات السير الذاتية والوظائف.",
 
-    "Users Managment": "إدارة المستخدمين"
+    "Users Managment": "إدارة المستخدمين",
+    "Please login" : "الرجاء تسجيل الدخول",
+    "Guest" : "زائر"
 }
