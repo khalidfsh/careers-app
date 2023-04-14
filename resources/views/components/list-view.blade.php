@@ -16,7 +16,7 @@
                 </svg>
             </span>
         </div>
-        <input wire:model.debounce.500ms="{{ $searchModel }}" type="text" name="search-{{ $searchModel }}" id="search-{{ $searchModel }}" class="focus:ring-teal-500 focus:border-teal-500 block w-full pl-10 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="{{ __("Search") }}">
+        <input wire:model.debounce.500ms="{{ $searchModel }}" type="text" name="search-{{ $searchModel }}" id="search-{{ $searchModel }}" class="focus:ring-teal-500 focus:border-teal-500 block w-full ps-10 pe-12 sm:text-sm border-gray-300 rounded-md" placeholder="{{ __("Search") }}">
     </div>
     @endif
     <div class="ms-2 me-2 order-1 md:order-2">

@@ -209,5 +209,11 @@
 
     "Users Managment": "إدارة المستخدمين",
     "Please login" : "الرجاء تسجيل الدخول",
-    "Guest" : "زائر"
+    "Guest" : "زائر",
+    "Saudi" : "سعودي",
+    "None Saudi": "غير سعودي",
+    "Single": "أعزب",
+    "Married": "متزوج",
+    "Male" : "ذكر",
+    "Female" : "أنثى"
 }

@@ -196,5 +196,13 @@
 
     "Users Managment" : "Users Managment",
     "Please login" : "Please login",
-    "Guest" : "Guest"
+    "Guest" : "Guest",
+
+
+    "Saudi" : "Saudi",
+    "None Saudi": "Non Saudi",
+    "Single": "Single",
+    "Married": "Married",
+    "Male" : "Male",
+    "Female" : "Female"
 }

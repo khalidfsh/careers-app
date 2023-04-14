@@ -17,40 +17,44 @@
                     </x-button>
                 </div>
 
-                
-                <ul class="space-y-4">
-                    @forelse($data as $index => $qualification)
-                        <li class="flex items-center justify-between dark:text-white rounded-lg shadow-md">
-                            <div class="ps-2 py-2">
-                                <h5 class=" text-sm text-gray-600 dark:text-gray-400">
-                                    {{ __('resume.qualification.types.'.$qualification['title_type']) }}
-                                </h5>
-                                <p class="text-sm">{{$qualification['title']}}</p>
+                <div class="relative overflow-x-auto">
+                    <table class="w-full table-auto">
+                        @forelse($data as $index => $qualification)
+                            <tr class="pb-4 border-b border-emerald-500">
+                                <div class="">
+                                {{-- <div class --}}
+                                    <th scope="row" class="text-start px-2 py-2">
+                                        <div class="  text-xs text-gray-600 dark:text-gray-400">
+                                            {{ __('resume.qualification.types.'.$qualification['title_type']) }}
+                                        </div>
+                                        <p class="text-sm text-gray-900 dark:text-gray-100">{{$qualification['title']}}</p>
+                                    </th>
+                                    <td class="px-2 pt-2 text-sm text-gray-600 dark:text-gray-400">
+                                        {{ $qualification['institution']}}
+                                    </td>
+                                    <td class="px-2 pt-2 text-xs text-gray-600 dark:text-gray-400">
+                                        @php
+                                            $endDate = new DateTime($qualification['end_date']);
+                                        @endphp
+                                        {{$endDate->format('Y/m')}}
+                                    </td>
+                                    <td class="block py-4 text-left pe-2">
+                                        <button class="cursor-pointer text-m text-blue-700 underline" wire:click="">
+                                            {{ __('Edit') }}
+                                        </button>
+                                        <button class="ms-2 cursor-pointer text-m text-red-500" wire:click="delete({{ $index }})">
+                                            {{ __('Delete') }}
+                                        </button>
+                                    </td>
+                                </div>
+                            </tr>
+                        @empty
+                            <div class="dark:text-white">
+                                {{ __('204') }}
                             </div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">
-                                {{ $qualification['institution']}}
-                            </div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">
-                                @php
-                                    $endDate = new DateTime($qualification['end_date']);
-                                @endphp
-                                {{$endDate->format('Y/m')}}
-                            </div>
-                            <div class=" me-2">
-                                <button class="cursor-pointer ms-6 text-sm text-gray-400 underline" wire:click="">
-                                    {{ __('Edit') }}
-                                </button>
-                                <button class="cursor-pointer ms-6 text-sm text-red-500" wire:click="delete({{ $index }})">
-                                    {{ __('Delete') }}
-                                </button>
-                            </div>
-                        </li>
-                    @empty
-                        <li class="dark:text-white">
-                            {{ __('204') }}
-                        </li>
-                    @endforelse
-                </ul>
+                        @endforelse
+                    </table>
+                </div>
 
             </div>
         </x-slot>
@@ -69,17 +73,23 @@
 
         <x-slot name="content">
             <form id="form-qualification" name="form-qualification">
-                <div class="grid grid-cols-2  gap-6 ">
+                <div class="grid grid-cols-6 gap-3 ">
                     {{-- title --}}
                     <div class="col-span-6">
                         <x-label for="title" value="{{ __('resume.qualification.title') }}" />
                         {{-- dropdown of qualification types --}}
-                        <x-select id="title_type"
-                                    name="title_type"
-                                    :options="$titleTypes"
-                                    wire:model.defer="state.title_type"/>
-                        <x-input id="title" type="text" class="ms-1 mt-1 block w-full" wire:model.defer="state.title" />
+                        <div class="inline-flex w-full">
+
+                            <x-select   clss="border-r-2"
+                                        id="title_type"
+                                        name="title_type"
+                                        :options="$titleTypes"
+                                        wire:model.defer="state.title_type"/>
+                            <x-input id="title" type="text" class="block w-full" wire:model.defer="state.title" />
+                        </div>
                         <x-input-error for="state.title" class="mt-2" />
+
+
                     </div>
                     {{-- institution --}}
                     <div class="col-span-6">
@@ -88,19 +98,19 @@
                         <x-input-error for="state.institution" class="mt-2" />
                     </div>
                     {{-- start date --}}
-                    <div class="col-span-6 sm:col-span-3">
+                    <div class="col-span-3">
                         <x-label for="start_date" value="{{ __('resume.qualification.start_date') }}" />
                         <x-input id="start_date" type="date" class="mt-1 block w-full" wire:model.defer="state.start_date" />
                         <x-input-error for="state.start_date" class="mt-2" />
                     </div>
                     {{-- end date --}}
-                    <div class="col-span-6 sm:col-span-3">
+                    <div class="col-span-3">
                         <x-label for="end_date" value="{{ __('resume.qualification.end_date') }}" />
                         <x-input id="end_date" type="date" class="mt-1 block w-full" wire:model.defer="state.end_date" />
                         <x-input-error for="state.end_date" class="mt-2" />
                     </div>
                     {{-- grade --}}
-                    <div class="col-span-6 sm:col-span-3">
+                    <div class="col-span-3 col-start-3">
                         <x-label for="grade" value="{{ __('resume.qualification.grade') }}" />
                         <x-input id="grade" type="number" step="0.01" class="mt-1 block w-full" wire:model.defer="state.grade" />
                         <x-input-error for="state.grade" class="mt-2" />
