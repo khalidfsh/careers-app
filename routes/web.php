@@ -5,6 +5,7 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\JobsController;
 use App\Http\Livewire\JobList;
 use App\Http\Livewire\JobManagement;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +36,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-   
+
     Route::get('jobs/{job}', [JobsController::class, 'show'])->name('job');
 
     Route::get('admin/jobs', function () {
@@ -44,11 +45,9 @@ Route::middleware([
     Route::get('admin/users', function () {
         return view('admin.jobs');
     })->name('admin.users');
-    
+
 
 });
 
 // Route::get('/jobs', JobList::class)->name('jobs');
 // Route::get('/jobs/manage', JobManagement::class)->name('jobs.manage');
-
-

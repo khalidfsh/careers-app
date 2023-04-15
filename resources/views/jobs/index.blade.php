@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
             {{ __('job.job_listings') }}
         </h2>
     </x-slot>
@@ -14,9 +14,10 @@
 
         <div class="mt-8">
             @foreach ($jobs as $job)
-                <div class="bg-white dark:bg-gray-800 p-4 mb-4 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold mb-2">
-                        <a href="{{ route('job', $job) }}" class="text-blue-500 hover:text-blue-700">{{ $job->title }}</a>
+                <div class="mb-4 rounded-lg bg-white p-4 shadow-md dark:bg-gray-800">
+                    <h3 class="mb-2 text-lg font-semibold">
+                        <a class="text-blue-500 hover:text-blue-700"
+                            href="{{ route('job', $job) }}">{{ $job->title }}</a>
                     </h3>
                     <p>{{ Str::limit($job->description, 150) }}</p>
                 </div>

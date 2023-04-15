@@ -190,19 +190,19 @@
     "You may not leave a team that you created.": "You may not leave a team that you created.",
     "Your email address is unverified.": "Your email address is unverified.",
     "Your profile information has been updated!": "Your profile information has been updated!",
-    "Create your resume in minutes with our resume builder. or just auto generat from your resume! You’ll get a professional resume that will help you land your dream job." : "Create your resume in minutes with our resume builder. or just auto generat from your resume! You’ll get a professional resume that will help you land your dream job.",
-    "Find your dream job. Browse our job listings and apply for your dream job." : "Find your dream job. Browse our job listings and apply for your dream job.",
+    "Create your resume in minutes with our resume builder. or just auto generat from your resume! You’ll get a professional resume that will help you land your dream job.": "Create your resume in minutes with our resume builder. or just auto generat from your resume! You’ll get a professional resume that will help you land your dream job.",
+    "Find your dream job. Browse our job listings and apply for your dream job.": "Find your dream job. Browse our job listings and apply for your dream job.",
     "We are the best job board in the world.": "We are the best job board in the world.",
 
-    "Users Managment" : "Users Managment",
-    "Please login" : "Please login",
-    "Guest" : "Guest",
+    "Users Managment": "Users Managment",
+    "Please login": "Please login",
+    "Guest": "Guest",
 
-
-    "Saudi" : "Saudi",
+    "Saudi": "Saudi",
     "None Saudi": "Non Saudi",
     "Single": "Single",
     "Married": "Married",
-    "Male" : "Male",
-    "Female" : "Female"
+    "Male": "Male",
+    "Female": "Female",
+    "Title": "Title"
 }

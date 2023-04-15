@@ -1,3 +1,18 @@
 @tailwind base;
+
+@layer base {
+    .logo-color-1 {
+        stop-color: #21145f;
+    }
+    .logo-color-2 {
+        stop-color: #008056;
+    }
+
+    /* Dark mode colors */
+    .white-logo-color {
+        stop-color: #f1f1f1;
+    }
+}
+
 @tailwind components;
 @tailwind utilities;

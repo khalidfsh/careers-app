@@ -31,6 +31,8 @@ return [
             'master' => 'ماجستير',
             'phd' => 'دكتوراه',
         ],
+        'title_type' => 'نوع المؤهل',
+        'title_type_error' => 'اختر نوع المؤهل مطلوب.',
         'title_error' => 'حقل المؤهل مطلوب.',
         'institution' => 'المؤسسة',
         'institution_error' => 'حقل المؤسسة مطلوب.',

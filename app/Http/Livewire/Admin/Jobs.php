@@ -22,7 +22,7 @@ class Jobs extends Component
 
     public $state;
 
-    public $showJobManagerToggle = false;
+    public $showModalManagerToggle = false;
 
     protected $rules = [
         'state.title' => 'required|min:3|max:255',
@@ -86,16 +86,16 @@ class Jobs extends Component
         $this->sortBy = $field;
     }
 
-    public function modalCreateManager()
+    public function showCreateModalManager()
     {
         // $this->reset(['state']);
-        $this->showJobManagerToggle = true;
+        $this->showModalManagerToggle = true;
     }
 
-    public function modalEditManager(Job $job)
+    public function showEditModalManager(Job $job)
     {
         $this->state = $job;
-        $this->showJobManagerToggle = true;
+        $this->showModalManagerToggle = true;
     }
 
 
@@ -124,7 +124,7 @@ class Jobs extends Component
 
         }
 
-        $this->showJobManagerToggle = false;
+        $this->showModalManagerToggle = false;
     }
 
 

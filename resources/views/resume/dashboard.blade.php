@@ -2,13 +2,14 @@
     <x-slot name="header">
         <div class="flex flex-row justify-between">
             <div class="flex flex-col">
-                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
                     {{ __('resume.resume') }}
                 </h2>
-                <p class="text-gray-500 dark:text-gray-400 text-sm">{{ __('resume.resume_description') }}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('resume.resume_description') }}</p>
             </div>
             <div class="flex flex-col">
-                <a href="#" class="btn btn-primary text-gray-500 dark:text-gray-400 ">{{ __('resume.upload') }}</a>
+                <a class="btn btn-primary text-gray-500 dark:text-gray-400"
+                    href="#">{{ __('resume.upload') }}</a>
             </div>
         </div>
         {{-- <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -20,7 +21,7 @@
     </x-slot>
 
     <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl py-10 sm:px-6 lg:px-8">
             @livewire('resume.general-form')
             <x-section-border />
             @livewire('resume.qualification')
