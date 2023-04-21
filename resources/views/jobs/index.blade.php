@@ -15,11 +15,17 @@
         <div class="mt-8">
             @foreach ($jobs as $job)
                 <div class="mb-4 rounded-lg bg-white p-4 shadow-md dark:bg-gray-800">
-                    <h3 class="mb-2 text-lg font-semibold">
-                        <a class="text-blue-500 hover:text-blue-700"
-                            href="{{ route('job', $job) }}">{{ $job->title }}</a>
-                    </h3>
-                    <p>{{ Str::limit($job->description, 150) }}</p>
+                    <div class="flex justify-between">
+                        <h3 class="mb-2 text-lg font-semibold">
+                            <a class="text-blue-500 hover:text-blue-700"
+                                href="{{ route('jobs.show', $job) }}">{{ $job->title }}</a>
+                        </h3>
+                        @if (!empty($job['type']))
+                            <p><strong>{{ __('job.' . $job['type']) }}</strong></p>
+                        @endif
+
+                    </div>
+                    <p class="dark:text-white">{{ Str::limit($job->description, 150) }}</p>
                 </div>
             @endforeach
 

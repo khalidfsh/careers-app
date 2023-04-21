@@ -5,6 +5,7 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\JobsController;
 use App\Http\Livewire\JobList;
 use App\Http\Livewire\JobManagement;
+use App\Http\Livewire\admin\JobManage;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,25 +27,32 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('jobs', [JobsController::class, 'index'])->name('jobs');
-Route::get('resume', function () {
-    return view('resume.dashboard');
-})->name('resume');
+Route::get('jobs/{job}', [JobsController::class, 'show'])->name('jobs.show');
+
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
+    Route::get('jobs', [JobsController::class, 'index'])->name('jobs');
 
-    Route::get('jobs/{job}', [JobsController::class, 'show'])->name('job');
+
+    Route::get('resume', function () {
+        return view('resume.dashboard');
+    })->name('resume');
+
 
     Route::get('admin/jobs', function () {
         return view('admin.jobs.index');
     })->name('admin.jobs');
+
     Route::get('admin/users', function () {
         return view('admin.jobs');
     })->name('admin.users');
+
+    Route::get('/admin/job/{id}', JobManage::class);
+    Route::get('/admin/job', JobManage::class)->name('admin.job');
 
 
 });

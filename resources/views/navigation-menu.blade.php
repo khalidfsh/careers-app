@@ -9,7 +9,7 @@
                     <a href="{{ route('dashboard') }}">
                         <x-application-mark class="block h-12 w-auto" />
                     </a>
-                    <div class="inline-flex ms-2">
+                    <div class="inline-flex ms-4">
                         <button
                             class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-teal-700 focus:ring-offset-2"
                             type="button"
@@ -78,7 +78,9 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:flex sm:ms-10">
-                    <x-nav-link href="{{ route('admin.users') }}"
+                    {{-- TODO: User Managment --}}
+                    {{-- <x-nav-link href="{{ route('admin.users') }}" --}}
+                    <x-nav-link href="#"
                         :active="request()->routeIs('admin/users')">
                         {{ __('Users Managment') }}
                     </x-nav-link>

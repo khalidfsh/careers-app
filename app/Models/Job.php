@@ -17,16 +17,41 @@ class Job extends Model
     protected $fillable = [
         'title',
         'description',
+        'qualifications',
+        'specializations',
+        'experience_years_per_qualification',
+        'extra_requirements',
+        'start_date',
+        'end_date',
+        'salary',
         'number_of_positions',
-        'qualification',
-        'required_specializations',
-        'required_experience_years',
-        'requirements',
-        'user_id'
+        'location',
+        'type',
+        'category',
+        'creator_user_id',
+        'last_modifier_user_id'
     ];
 
+    /**
+     * function to get the creator of the job
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * 
+     */
     public function creator()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'creator_user_id');
     }
+
+    /**
+     * function to get the last modifier of the job
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * 
+     */
+    public function lastModifier()
+    {
+        return $this->belongsTo(User::class, 'last_modifier_user_id');
+    }
+
 }

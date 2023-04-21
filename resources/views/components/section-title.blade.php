@@ -10,4 +10,9 @@
     <div class="px-4 sm:px-0">
         {{ $aside ?? '' }}
     </div>
+    @isset($actions)
+        <div class="flex flex-row space-x-2">
+            {{ $actions }}
+        </div>
+    @endisset
 </div>

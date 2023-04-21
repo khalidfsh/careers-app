@@ -7,9 +7,9 @@
 </div>
 
 @if ($searchModel != '' || $actions != '')
-    <div class="mb-5 flex flex-col justify-between gap-3 md:flex-row">
+    <div class="flex flex-col justify-between gap-3 md:flex-row">
         @if ($searchModel != '')
-            <div class="relative rounded-md shadow-sm ms-2 me-2 md:order-1">
+            <div class="relative mx-2 rounded-md shadow-sm md:order-1">
                 <div class="pointer-events-none absolute inset-y-0 flex items-center ps-3 start-0">
                     <span class="text-gray-500 sm:text-sm">
                         <svg class="h-5 w-5"
@@ -23,7 +23,7 @@
                     </span>
                 </div>
                 <input
-                    class="block w-full rounded-md border-gray-300 ps-10 pe-12 focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                    class="block w-full rounded-md border-gray-300 px-10 ps-10 focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
                     id="search-{{ $searchModel }}"
                     name="search-{{ $searchModel }}"
                     type="text"
@@ -31,7 +31,7 @@
                     placeholder="{{ __('Search') }}">
             </div>
         @endif
-        <div class="order-1 ms-2 me-2 md:order-2">
+        <div class="order-1 mx-2 md:order-2">
             <div>
                 {{ $actions }}
             </div>
@@ -40,7 +40,7 @@
 @endif
 
 @if ($filters != '')
-    <div class="mb-5 rounded-md bg-gray-50 p-4 text-sm text-gray-800 shadow dark:text-gray-200">
+    <div class="rounded-md bg-gray-50 p-4 text-sm text-gray-800 shadow dark:text-gray-200">
         {{ $filters }}
     </div>
 @endif

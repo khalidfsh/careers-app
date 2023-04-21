@@ -216,5 +216,16 @@
     "Married": "متزوج",
     "Male": "ذكر",
     "Female": "أنثى",
-    "Title": "العنوان"
+    "Title": "العنوان",
+    "Clear Fields": "مسح الحقول",
+    "Choose": "اختر...",
+    "And": "و",
+    "None": "لا يوجد",
+    "Basic Info": "المعلومات الأساسية",
+    "Requirements": "المتطلبات",
+    "year": "سنة",
+    "2 years": "سنتين",
+    "years": "سنوات",
+    "qualification" : "المؤهل",
+    "experience" : "خبرة"
 }

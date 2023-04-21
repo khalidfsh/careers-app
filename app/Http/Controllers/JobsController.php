@@ -16,6 +16,8 @@ class JobsController extends Controller
 
     public function show(Job $job)
     {
-        return view('jobs.show', compact('job'));
+        $qualifications = json_decode($job['qualifications'], true);
+        $experiencePerQualifications = json_decode($job['experience_years_per_qualification'], true);
+        return view('jobs.show', compact('job', 'qualifications', 'experiencePerQualifications'));
     }
 }

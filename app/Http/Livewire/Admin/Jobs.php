@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Job;
@@ -11,67 +10,69 @@ class Jobs extends Component
 {
     use WithPagination;
 
+    /**
+     * Filter and sort options.
+     */
     public $sortBy = 'created_at';
     public $sortDirection = 'desc';
     public $perPage = 10;
     public $search = '';
     public $filters = [];
-    public $titleTypes = [];
     // public $startDate = now()->toDateString();
     // public $endDate = now()->toDateString();
 
-    public $state;
 
-    public $showModalManagerToggle = false;
+    /**
+     * The component's validation rules.
+     *
+     * @var array
+     */
+    
 
-    protected $rules = [
-        'state.title' => 'required|min:3|max:255',
-        'state.description' => 'required|min:3',
-        'state.number_of_positions' => 'required|integer|min:1',
-        'state.qualification' => 'required|min:3',
-        'state.required_specializations' => 'required|min:3',
-        'state.required_experience_years' => 'required|integer|min:0',
-        'state.requirements' => 'required|min:3',
+    /**
+     * 
+     * The cmponent's dropdown lists
+     */
+    public $qualificationTypes = [];
+    public $categories = [];
+    public $jobTypes = [];
 
-        // 'state.location' => 'required|min:2|max:255',
-        // 'state.salary' => 'required|numeric|min:0',
-        // 'state.type' => 'required|in:full-time,part-time,contract',
-        // 'state.category' => 'required|exists:categories,id',
-        // 'state.start_date' => 'required|date|after_or_equal:today',
-        // 'state.end_date' => 'nullable|date|after_or_equal:state.start_date',
-    ];
-
+    /**
+     * The cmponent's mount method.
+     * 
+     * @return void
+     */
     public function mount()
     {
-        // $this->validationAttributes = [
-        //     'job.title' => __('job.title'),
-        //     'job.description' => __('job.description'),
-        //     'job.number_of_positions' => __('job.number_of_positions'),
-        //     'job.qualification' => __('job.qualification'),
-        //     'job.required_specializations' => __('job.required_specializations'),
-        //     'job.required_experience_years' => __('job.required_experience_years'),
-        //     'job.requirements' => __('job.requirements'),
+        // assign dropdown lists
+        // $this->qualificationTypes = config('lists.qualification_types');
+        // $this->categories = config('lists.job_categories');
+        // $this->jobTypes = config('lists.job_types');
+        // $this->qualificationOptions = config('lists.qualification_types');
+        // $this->experienceOptions = array_combine(range(0, 12), range(0, 12));
+
+        // $this->selectedQualifications = [
+        //     'high_school' => 1,
+        //     'diploma' => 3,
         // ];
-        $this->titleTypes = [
-            'select' => __('resume.qualification.select'),
-            'high_school' => __('resume.qualification.types.high_school'),
-            'diploma' => __('resume.qualification.types.diploma'),
-            'bachelor' => __('resume.qualification.types.bachelor'),
-            'master' => __('resume.qualification.types.master'),
-            'phd' => __('resume.qualification.types.phd'),
-        ];
-        $this->validationAttributes = [
-            'state.title' => __('job.title'),
-            'state.description' => __('job.description'),
-            'state.number_of_positions' => __('job.number_of_positions'),
-            'state.qualification' => __('job.qualification'),
-            'state.required_specializations' => __('job.required_specializations'),
-            'state.required_experience_years' => __('job.required_experience_years'),
-            'state.requirements' => __('job.requirements'),
-        ];
+
+        // $this->validationAttributes = [
+        //     'state.title' => __('job.title'),
+        //     'state.description' => __('job.description'),
+        //     'state.qualifications' => __('job.qualifications'),
+        //     'state.specializations' => __('job.specializations'),
+        //     'state.experience_years_per_qualification' => __('job.experience_years_per_qualification'),
+        //     'state.extra_requirements' => __('job.extra_requirements'),
+        //     'state.start_date' => __('job.start_date'),
+        //     'state.end_date' => __('job.end_date'),
+        //     'state.salary' => __('job.salary'),
+        //     'state.number_of_positions' => __('job.number_of_positions'),
+        //     'state.location' => __('job.location'),
+        //     'state.type' => __('job.type'),
+        //     'state.category' => __('job.category'),
+        // ];
     }
 
-    
 
     public function updatingQueryParams()
     {
@@ -86,48 +87,153 @@ class Jobs extends Component
         $this->sortBy = $field;
     }
 
-    public function showCreateModalManager()
-    {
-        // $this->reset(['state']);
-        $this->showModalManagerToggle = true;
-    }
+    /*********************************************** */
+    /*************** Job Manager Modal ***************/
+    /*********************************************** */
 
-    public function showEditModalManager(Job $job)
-    {
-        $this->state = $job;
-        $this->showModalManagerToggle = true;
-    }
+    /**
+    //  * Show the create job modal.
+    //  *
+    //  * @return void
+    //  */
+    // public function showCreateModal()
+    // {
+    //     // $this->reset(['state']);
+    //     $this->showManagerModal = true;
+    // }
+    // /**
+    //  * Show the edit job modal.
+    //  *
+    //  * @param  \App\Models\Job  $job
+    //  * @return void
+    //  */
+    // public function showEditModal(Job $job)
+    // {
+    //     $this->state = $job;
+    //     $this->showManagerModal = true;
+    // }
+
+    // // TODO: implement the excel import feature
+    // /**
+    //  * Import jobs from an excel file.
+    //  *
+    //  * @return void
+    //  */
+    // public function import()
+    // {
+    //     $this->validate([
+    //         'import_file' => 'required|mimes:xlsx,xls,csv',
+    //     ]);
+    //     $file = $this->import_file->store('temp');
+    //     $this->import_file = null;
+    //     $this->dispatchBrowserEvent('imported', ['file' => $file]);
+    // }
+    // //TODO: implement the excel export feature
+    // /**
+    //  * Export jobs to an excel file.
+    //  *
+    //  * @return void
+    //  */
+    // public function export()
+    // {
+    //     $this->dispatchBrowserEvent('exported');
+    // }
 
 
-    public function save()
-    {
-        $user_id = Auth::id(); // or use $user_id = auth()->id();
-        // abort_unless(Auth::user()->is_admin, 403);
-        
-        if (isset($this->state->id)) {
-            $validatedData = $this->validate($this->rules);
-            // unset($this->job['']);
-            $this->state->save();
-            $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => __('Job updated')]);
+    /*********************************************** */
+    /********* Qualification Experience Pairs ********/
+    /*********************************************** */
 
-        } else {
-            $validatedData = $this->validate($this->rules);
-            $validatedData['state']['user_id'] = Auth::user()->id;
-            // $validatedData['slug'] = str_slug($validatedData['title']);
-            // $validatedData['status'] = 'active';
-            // $validatedData['start_date'] = now()->toDateString();
-            // $validatedData['end_date'] = now()->addDays(30)->toDateString();
-            //save 
-            Job::create($validatedData['state']);
-            //create 
-            $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => __('Job saved')]);
+    /**
+     * toggle the qualification dropdown.
+     * 
+     * @return void
+     */
+    // public function toggleQualificationDropdown()
+    // {
+    //     $this->showQualificationDropdown = !$this->showQualificationDropdown;
+    // }
+    /**
+     * Show the experience years for the hovered qualification.
+     *
+     * @param  string  $qualification
+     * @return void
+     */
+    // public function showQualificExperienceYears($qualification)
+    // {
+    //     $this->hoveredQualification = $qualification;
+    // }
+    /**
+     * Update the qualification experience pair.
+     *
+     * @param  string  $qualification
+     * @param  int  $experienceYears
+     * @return void
+     */
+    // public function saveQualificExperiencePair($qualification, $experienceYears)
+    // {
+    //     $this->qualificationExperiencePairs[$qualification] = $experienceYears;
+    //     $this->showQualificationDropdown = false;
+    //     $this->hoveredQualification = null;
+    // }
 
-        }
 
-        $this->showModalManagerToggle = false;
-    }
+    /*********************************************** */
+    /****************** Job Manager *****************/
+    /*********************************************** */
+
+    /**
+     * Save the job (create, update).
+     *
+     * @return void
+     */
+    // public function save()
+    // {
+    //     dd($this->state);
+    //     // abort_unless(Auth::user()->is_admin, 403);
+
+    //     $user_id = Auth::id(); // or use $user_id = auth()->id();
+
+    //     // Validate the data
+    //     $validatedData = $this->validate($this->rules);
+
+    //     // Convert the qualifications and experience_years_per_qualification to JSON
+    //     // so that we can store them in the database
+    //     $validatedData['qualifications'] = json_encode(array_keys($this->qualificationExperiencePairs));
+    //     $validatedData['experience_years_per_qualification'] = json_encode($this->qualificationExperiencePairs);
+
+    //     // Check if the job already exists (i.e., it's an update)
+    //     if (isset($this->state->id)) {
+    //         // Set the last_modifier_user_id for the job
+    //         $this->state->last_modifier_user_id = $user_id;
+    //     } else {
+    //         // This is a new job, so set the creator_user_id
+    //         $this->state->creator_user_id = $user_id;
+    //     }
+
+    //     // Save the job using the save() method
+    //     $this->state->save();
+
+    //     // Display a success message
+    //     $message = isset($this->state->id) ? __('Job updated') : __('Job saved');
+    //     $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => $message]);
+
+        // Close the modal
+    //     $this->showManagerModal = false;
+    // }
+
+    /**
+     * clear the job manager modal.
+     * 
+     * @return void
+     */
+    // public function clear()
+    // {
+    //     $this->reset(['state', 'showManagerModal', 'qualificationExperiencePairs']);
+    // }
 
 
+    /*********************************************** */
     /**
      * Render the component.
      *

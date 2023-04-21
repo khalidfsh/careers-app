@@ -10,10 +10,10 @@
                 x2="-16.88"
                 y2="24"
                 gradientUnits="userSpaceOnUse">
-                <stop class="logo-color-1 dark:white-logo-color-1"
-                    offset="0" />
-                <stop class="logo-color-1 dark:white-logo-color-1"
-                    offset="1" />
+                <stop offset="0"
+                    stop-color="#21145f" />
+                <stop offset="1"
+                    stop-color="#008056" />
             </linearGradient>
         </defs>
         <path style="fill: url(#linear-gradient);"

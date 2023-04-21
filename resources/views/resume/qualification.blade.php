@@ -85,9 +85,9 @@
                             value="{{ __('resume.qualification.title') }}" />
                         {{-- dropdown of qualification types --}}
                         <div class="inline-flex w-full">
-                            <x-select id="title_type"
+                            <x-select class=""
+                                id="title_type"
                                 name="title_type"
-                                clss=""
                                 :options="$titleTypes"
                                 wire:model.defer="state.title_type" />
                             <x-input class="block w-full"

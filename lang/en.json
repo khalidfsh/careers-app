@@ -204,5 +204,8 @@
     "Married": "Married",
     "Male": "Male",
     "Female": "Female",
-    "Title": "Title"
+    "Title": "Title",
+
+    "Choose": "Choose...",
+    "year": "1 year"
 }

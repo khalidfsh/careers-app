@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,5 +28,11 @@ class AppServiceProvider extends ServiceProvider
         if (Session::has('locale')) {
             App::setLocale(Session::get('locale'));
         }
+        
+        // Custom Blade directive for joining arrays with a specified delimiter
+        Blade::directive('joinArray', function ($expression) {
+            list($array, $delimiter) = explode(',', $expression);
+            return "<?php echo implode($delimiter, $array); ?>";
+        });
     }
 }
