@@ -18,6 +18,8 @@ class JobsController extends Controller
     {
         $qualifications = json_decode($job['qualifications'], true);
         $experiencePerQualifications = json_decode($job['experience_years_per_qualification'], true);
-        return view('jobs.show', compact('job', 'qualifications', 'experiencePerQualifications'));
+        $specializations = json_decode($job['specializations'], true);
+        $requirements = json_decode($job['extra_requirements'], true);
+        return view('jobs.show', compact('job', 'qualifications', 'experiencePerQualifications', 'specializations', 'requirements'));
     }
 }

@@ -28,6 +28,7 @@ return [
     'experience_years_per_qualification' => 'سنوات الخبرة المطلوبة',
     'experience_years_per_qualification_error' => 'حقل سنوات الخبرة المطلوبة مطلوب.',
     'extra_requirements' => 'المتطلبات الإضافية',
+    'extra_requirements_example' => 'مثال: حسن السيرة والسلوك, سعودي الجنسية, إلخ',
     'extra_requirements_error' => 'حقل المتطلبات مطلوب.',
     'number_of_positions' => 'عدد المناصب',
     'number_of_positions_error' => 'حقل عدد المناصب مطلوب.',

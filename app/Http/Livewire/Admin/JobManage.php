@@ -18,6 +18,7 @@ class JobManage extends Component
 
     public $qualifications = [];
     public $specializations = '';
+    public $requirements = '';
     // every qualification has an experience value associated with it
     public $experiencePerQualifications = [];
 
@@ -41,10 +42,11 @@ class JobManage extends Component
         'state.location' => 'nullable|string',
         'state.type' => 'nullable|string|in:full_time,part_time,remote,internship,volunteer',
         'state.category' => 'nullable|string',
-        
+
         'qualifications' => 'required|array',
         'specializations' => 'required|string',
-        
+        'requirements' => 'nullable|string',
+
 
     ];
 
@@ -100,7 +102,7 @@ class JobManage extends Component
             foreach ($this->qualifications as $qualification) {
                 $this->experiencePerQualifications[$qualification] = 0;
             }
-    
+
         }
     }
 
@@ -127,7 +129,7 @@ class JobManage extends Component
         $user_id = Auth::id(); // or use $user_id = auth()->id();
 
         // Validate the data
-        
+
 
         // Convert the qualifications and experience_years_per_qualification to JSON
         // so that we can store them in the database
@@ -136,6 +138,7 @@ class JobManage extends Component
 
         // The regular expression pattern to match both ',' and '،' as delimiters
         $this->state['specializations'] = json_encode(preg_split('/\s*(,|،)\s*/', $this->specializations, -1, PREG_SPLIT_NO_EMPTY));
+        $this->state['extra_requirements'] = json_encode(preg_split('/\s*(,|،)\s*/', $this->requirements, -1, PREG_SPLIT_NO_EMPTY));
         // Assign the validated data to the job's state
         // $this->state = array_merge($this->state, $validatedData);
         // dd($this->state);
@@ -193,7 +196,7 @@ class JobManage extends Component
      */
     public function render()
     {
-        
+
         return view('admin.jobs.manage');
 
     }

@@ -28,6 +28,7 @@ return [
     'experience_years_per_qualification' => 'Required Experience Years',
     'experience_years_per_qualification_error' => 'The required experience years field is required.',
     'extra_requirements' => 'Requirements',
+    'extra_requirements_example' => 'Example: Good conduct, Saudi nationality, etc.',
     'extra_requirements_error' => 'The requirements field is required.',
     'number_of_positions' => 'Number Of Positions',
     'number_of_positions_error' => 'The number of positions field is required.',

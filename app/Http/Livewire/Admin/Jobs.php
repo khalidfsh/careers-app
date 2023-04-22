@@ -27,7 +27,7 @@ class Jobs extends Component
      *
      * @var array
      */
-    
+
 
     /**
      * 
@@ -218,7 +218,7 @@ class Jobs extends Component
     //     $message = isset($this->state->id) ? __('Job updated') : __('Job saved');
     //     $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => $message]);
 
-        // Close the modal
+    // Close the modal
     //     $this->showManagerModal = false;
     // }
 
@@ -244,9 +244,9 @@ class Jobs extends Component
         $jobs = Job::when($this->search, function ($query) {
             $query->where('title', 'like', '%' . $this->search . '%')
                 ->orWhere('description', 'like', '%' . $this->search . '%')
-                ->orWhere('qualification', 'like', '%' . $this->search . '%')
-                ->orWhere('required_specializations', 'like', '%' . $this->search . '%')
-                ->orWhere('requirements', 'like', '%' . $this->search . '%');
+                ->orWhere('location', 'like', '%' . $this->search . '%')
+                ->orWhere('type', 'like', '%' . $this->search . '%');
+
 
         })
             ->orderBy($this->sortBy, $this->sortDirection)

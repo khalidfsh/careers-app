@@ -6,7 +6,7 @@
 
         <x-slot name="data">
             @forelse($jobs as $job)
-                <li class="mx-5 mt-5">
+                <li class="mx-5">
                     {{-- <div class="mb-4 rounded-lg bg-white p-4 shadow-md dark:bg-gray-800">
                         <h3 class="mb-2 text-lg font-semibold">
                             <a class="text-blue-500 hover:text-blue-700"
@@ -14,7 +14,7 @@
                         </h3>
                         <p>{{ Str::limit($job->description, 150) }}</p>
                     </div> --}}
-                    <div class="mb-4 sm:p-6">
+                    <div class="pt-4 sm:p-6">
                         <h3 class="mb-2 text-2xl font-bold"><a class="text-blue-500 hover:text-blue-700"
                                 href="{{ route('jobs.show', ['job' => $job]) }}">{{ $job['title'] }}</a></h3>
                         <p class="dark:text-white">{{ Str::limit($job->description, 150) }}</p>
@@ -25,7 +25,7 @@
                                 {{ $job['type'] ? __('job.' . str_replace('-', '_', $job['type'])) : '' }}
                             </p>
                             <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.category') }}:</strong>
-                                {{ $job['category'] ?? '' }}</p>
+                                {{ __('job.' . $job['category']) ?? '' }}</p>
                             <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.start_date') }}:</strong>
                                 {{ $job['start_date'] }}</p>
                         </div>

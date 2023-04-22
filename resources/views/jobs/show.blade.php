@@ -3,9 +3,9 @@
         <div class="flex justify-between">
             <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
                 <x-nav-link class="justify-end text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
-                    href="#">
+                    href="{{ route('jobs') }}">
                     {{ __('Jobs') }}
-                </x-nav-link> / {{ $job['title'] }}
+                </x-nav-link>/ {{ $job['title'] }}
             </h2>
             {{-- TODO: apply page --}}
             <x-nav-link class="justify-end text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
@@ -20,11 +20,11 @@
             <div class="flex justify-between">
                 <h2 class="mb-2 text-2xl font-bold text-gray-700 dark:text-gray-400">{{ __('job.description') }}</h2>
                 @if (!empty($job['type']))
-                    <p><strong>{{ __('job.' . $job['type']) }}</strong></p>
+                    <p>{{ __('job.' . $job['type']) }}</p>
                 @endif
 
             </div>
-            <p class="mb-8">{!! nl2br(e($job['description'])) !!}</p>
+            <p class="mt-4">{!! nl2br(e($job['description'])) !!}</p>
         </div>
 
         <div class="mt-4 bg-white px-4 py-5 shadow dark:bg-gray-800 sm:rounded-md sm:p-6">
@@ -32,9 +32,9 @@
                 <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.location') }}:</strong>
                     {{ $job['location'] ?? '' }}</p>
                 <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.department') }}:</strong>
-                    {{ $job['category'] ?? '' }}</p>
+                    {{ __('job.'.$job['category']) ?? '' }}</p>
                 <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.salary') }}:</strong>
-                    {{ $job['salary'] ? '$' . $job['salary'] : '' }}</p>
+                    {{ $job['salary'] ? '~ ' . $job['salary'] . ' ' . __('SAR')  : '' }}</p>
                 <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.number_of_positions') }}:</strong>
                     {{ $job['number_of_positions'] ?? '' }}</p>
                 <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.start_date') }}:</strong>
@@ -47,9 +47,9 @@
 
         <div class="mt-4 bg-white px-4 py-5 shadow dark:bg-gray-800 sm:rounded-md sm:p-6">
 
-            <h2 class="mb-2 text-2xl font-bold text-gray-700 dark:text-gray-400">{{ __('job.extra_requirements') }}
+            <h2 class="mb-2 text-xl font-bold text-gray-700 dark:text-gray-400">{{ __('job.extra_requirements') }}
             </h2>
-            <h3 class="mb-2 text-xl text-gray-700 dark:text-gray-400">
+            <h3 class="mb-2 text-md text-gray-700 dark:text-gray-400">
                 {{ __('job.qualifications') }} {{ __('And') }} {{ __('job.experience_years') }}
             </h3>
 
@@ -79,24 +79,24 @@
 
             </ul>
             <!-- Specializations -->
-            {{-- <h3 class="mb-2 text-xl text-gray-700 dark:text-gray-400">{{ __('job.specializations') }}</h3>
+            <h3 class="mt-2 mb-2 text-md text-gray-700 dark:text-gray-400">{{ __('job.specializations') }}</h3>
             <ul class="list-disc px-8">
-                @if ($job['specializations'])
-                    @foreach ($job['specializations'] as $specialization)
+                @if (!empty($specs))
+                    @foreach ($specs as $specialization)
                         <li>{{ ucfirst($specialization) }}</li>
                     @endforeach
                 @else
                     <li> {{ __('None') }}</li>
                 @endif
 
-            </ul> --}}
+            </ul>
 
-            <h3 class="mb-2 text-xl text-gray-700 dark:text-gray-400">{{ __('job.extra_requirements') }} </h3>
+            <h3 class="mt-2 mb-2 text-md text-gray-700 dark:text-gray-400">{{ __('job.extra_requirements') }} </h3>
             <!-- Extra Requirements -->
             <ul class="mb-8 list-disc px-8">
-                @if (!empty($job['extra_requirements']))
+                @if (!empty($requirements))
 
-                    @foreach ($job['extra_requirements'] as $requirement)
+                    @foreach ($requirements as $requirement)
                         <li>{{ ucfirst($requirement) }}</li>
                     @endforeach
                 @else

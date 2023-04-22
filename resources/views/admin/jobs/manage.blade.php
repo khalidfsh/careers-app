@@ -57,7 +57,7 @@
                             for="state.title" />
                     </div>
                     {{-- loction input --}}
-                    <div class="col-span-4">
+                    <div class="col-span-6">
                         <x-label for="location"
                             value="{{ __('job.location') }}" />
                         <x-input class="mt-1 block w-full dark:text-gray-50"
@@ -114,6 +114,16 @@
                             for="state.specializations" />
                     </div>
                     {{-- requirements --}}
+                    <div class="col-span-6">
+                        <x-label for="requirements"
+                            value="{{ __('job.qualifications') }}" />
+                        <x-input class="mt-1 block w-full dark:text-gray-50"
+                            id="requirements"
+                            type="text"
+                            wire:model="requirements"
+                            autocomplete="requirements"
+                            placeholder="{{ __('job.extra_requirements_example') }}" />
+                    </div>
                     <div class="col-span-3">
                         <x-label for="qualifications"
                             value="{{ __('job.qualifications') }}" />
