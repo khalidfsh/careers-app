@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\JobsController;
-use App\Http\Livewire\JobList;
-use App\Http\Livewire\JobManagement;
+// use App\Http\Livewire\JobList;
+// use App\Http\Livewire\JobManagement;
 use App\Http\Livewire\admin\JobManage;
 
 /*
