@@ -81,8 +81,8 @@
             <!-- Specializations -->
             <h3 class="mt-2 mb-2 text-md text-gray-700 dark:text-gray-400">{{ __('job.specializations') }}</h3>
             <ul class="list-disc px-8">
-                @if (!empty($specs))
-                    @foreach ($specs as $specialization)
+                @if (!empty($specializations))
+                    @foreach ($specializations as $specialization)
                         <li>{{ ucfirst($specialization) }}</li>
                     @endforeach
                 @else
