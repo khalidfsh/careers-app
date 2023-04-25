@@ -2,6 +2,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Job;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -166,6 +167,8 @@ class JobManage extends Component
         // dd($this->state);
         // Display a success message
         $message = isset($this->state->id) ? __('Job updated') : __('Job saved');
+        // flash Success
+        session()->flash('message', 'Job saved successfully.');
         $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => $message]);
 
         // redirct to job
@@ -197,7 +200,7 @@ class JobManage extends Component
     public function render()
     {
 
-        return view('admin.jobs.manage');
+        return view('admin.job.manage');
 
     }
 }

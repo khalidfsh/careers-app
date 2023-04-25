@@ -51,8 +51,13 @@ Route::middleware([
         return view('admin.jobs');
     })->name('admin.users');
 
-    Route::get('/admin/job/{id}', JobManage::class);
-    Route::get('/admin/job', JobManage::class)->name('admin.job');
+    // Route::get('/admin/job/{id}', JobManage::class);
+    Route::get('/admin/job',function () {
+        return view('admin.job.index', [
+            'isNew' => true,
+            'job' => null,
+        ]);
+    })->name('admin.job');
 
 
 });
