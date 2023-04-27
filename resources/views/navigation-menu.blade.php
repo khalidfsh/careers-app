@@ -14,7 +14,7 @@
                     <label class="swap swap-rotate">
 
                         <!-- this hidden checkbox controls the state -->
-                        <x-input type="checkbox" class="h-0 w-0 focus:ring-0"
+                        <x-input type="checkbox" class="hidden"
                             x-on:change.debounce="darkMode = !darkMode" x-model="darkMode == true" />
 
                         <!-- sun icon -->
