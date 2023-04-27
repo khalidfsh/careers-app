@@ -31,7 +31,7 @@
     x-cloak>
     <x-banner />
 
-    <div x-bind:class="{ 'dark': darkMode === true }">
+    <div data-theme="hhc" x-bind:class="{ 'dark': darkMode === true }">
         <div class="font-sans text-gray-900 antialiased dark:text-gray-100">
             {{ $slot }}
         </div>

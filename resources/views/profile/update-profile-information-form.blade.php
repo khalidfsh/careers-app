@@ -10,7 +10,7 @@
     <x-slot name="form">
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div class="col-span-6 sm:col-span-4"
+            <div class="col-span-6 sm:col-span-4 "
                 x-data="{ photoName: null, photoPreview: null }">
                 <!-- Profile Photo File Input -->
                 <input class="hidden"
@@ -32,7 +32,7 @@
                 <!-- Current Profile Photo -->
                 <div class="mt-2"
                     x-show="! photoPreview">
-                    <img class="h-20 w-20 rounded-full object-cover"
+                    <img class="h-20 w-20 mask mask-squircle object-cover"
                         src="{{ $this->user->profile_photo_url }}"
                         alt="{{ $this->user->name }}">
                 </div>

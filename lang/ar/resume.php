@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     'resume' => 'السيرة الذاتية',
     'resume_description' => 'يرجى تحديث بيانات سيرتك الذاتية.',
-    'upload' => 'إرفع السيرة الذاتية',
+    'upload' => 'إرفع سيرتك الذاتية',
     'general' => 'البيانات العامة',
     'general_description' => 'يرجى إدخال بياناتك الشخصية الأساسية.',
     'full_name' => 'الاسم الكامل',

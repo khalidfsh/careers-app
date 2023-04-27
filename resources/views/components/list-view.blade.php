@@ -46,7 +46,7 @@
 @endif
 
 <div class="overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-md">
-    <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+    <ul>
         {{ $data }}
     </ul>
 </div>

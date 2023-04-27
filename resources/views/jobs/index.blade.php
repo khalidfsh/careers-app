@@ -5,12 +5,15 @@
         </h2>
     </x-slot>
 
-    <div class="container mx-auto mt-8">
-        <div>
-            {{-- <a href="{{ route('admin.jobs') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                {{ __('job.create_job') }}
-            </a> --}}
+    <div class="py-4">
+        <div class="mx-auto max-w-7xl ">
+            <div class="overflow-hidden bg-white shadow-xl dark:bg-gray-800 sm:rounded-lg">
+                @livewire('jobs')
+            </div>
         </div>
+    </div>
+{{-- 
+    <div class="container mx-auto mt-8">
 
         <div class="mt-8">
             @foreach ($jobs as $job)
@@ -82,5 +85,5 @@
 
             {{ $jobs->links() }}
         </div>
-    </div>
+    </div> --}}
 </x-app-layout>

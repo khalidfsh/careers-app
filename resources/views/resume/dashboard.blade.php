@@ -7,10 +7,8 @@
                 </h2>
                 <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('resume.resume_description') }}</p>
             </div>
-            <div class="flex flex-col">
-                <a class="btn btn-primary text-gray-500 dark:text-gray-400"
+                <a class="btn  btn-outline btn-primary dark:btn-secondary dark:btn-outline"
                     href="#">{{ __('resume.upload') }}</a>
-            </div>
         </div>
         {{-- <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Profile') }}

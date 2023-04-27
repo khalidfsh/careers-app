@@ -6,7 +6,6 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Job;
-use Illuminate\Support\Facades\Auth;
 
 class Jobs extends Component
 {
@@ -14,7 +13,7 @@ class Jobs extends Component
 
     public $sortBy = 'created_at';
     public $sortDirection = 'desc';
-    public $perPage = 10;
+    public $perPage = 6;
     public $search = '';
     public $filters = [];
     // public $startDate = now()->toDateString();
@@ -32,15 +31,13 @@ class Jobs extends Component
         $jobs = Job::when($this->search, function ($query) {
             $query->where('title', 'like', '%' . $this->search . '%')
                 ->orWhere('description', 'like', '%' . $this->search . '%')
-                ->orWhere('qualification', 'like', '%' . $this->search . '%')
-                ->orWhere('required_specializations', 'like', '%' . $this->search . '%')
-                ->orWhere('requirements', 'like', '%' . $this->search . '%');
-
+                ->orWhere('location', 'like', '%' . $this->search . '%')
+                ->orWhere('type', 'like', '%' . $this->search . '%');
         })
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->perPage);
 
-        return view('jobs.component', [
+        return view('jobs.list', [
             'jobs' => $jobs,
         ]);
 

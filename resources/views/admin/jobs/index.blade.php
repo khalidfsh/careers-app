@@ -4,10 +4,6 @@
             <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
                 {{ __('job.job_listings') }}
             </h2>
-
-            {{-- locate link to the end of view --}}
-
-
             <x-nav-link class="text-gl justify-end font-semibold leading-tight text-gray-800 dark:text-gray-200"
                 :href="route('admin.job')">
                 {{ __('job.create') }}

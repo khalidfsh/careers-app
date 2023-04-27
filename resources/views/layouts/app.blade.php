@@ -34,7 +34,7 @@
     x-cloak>
     <x-banner />
 
-    <div x-bind:class="{ 'dark': darkMode === true }">
+    <div data-theme="hhc" x-bind:class="{ 'dark': darkMode === true }">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @livewire('navigation-menu')
 

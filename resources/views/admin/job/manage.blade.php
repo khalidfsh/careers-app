@@ -119,13 +119,13 @@
                         <x-label for="experience_years"
                             value="{{ __('job.experience_years') }}" />
                         @foreach ($experiencePerQualifications as $qualification => $experience)
-                            <div class="text-xm mt-1 grid w-full grid-cols-5">
-                                <x-label class="col-span-2"
+                            <div class=" mt-1 grid w-full grid-cols-5 gap-2 items-center">
+                                <x-label class="text-start col-span-2 col-start-1 text-lg sm:text-xl"
                                     for="qualification.{{ $qualification }}"
                                     value="{{ __($qualificationOptions[$qualification]) }}" />
 
 
-                                <x-input class="col-span-2 dark:text-gray-50"
+                                <x-input class="col-span-3 dark:text-gray-50 col-start-3 text-center"
                                     id="experience.{{ $qualification }}"
                                     name="experience.{{ $qualification }}"
                                     type="number"
