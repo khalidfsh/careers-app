@@ -41,48 +41,48 @@
 
 ## التثبيت
 
-1. استنسخ المستودع: `git clone https://github.com/khalidfsh/careers-app.git`
+١. استنسخ المستودع: `git clone https://github.com/khalidfsh/careers-app.git`
 
-1. انتقل إلى مجلد المشروع: `cd careers-app`
+٢. انتقل إلى مجلد المشروع: `cd careers-app`
 
-2. قم بتثبيت معتمدات PHP: `composer install`
+٣. قم بتثبيت معتمدات PHP &#x202B;: `composer install`
 
-3. قم بتثبيت معتمدات JavaScript: `npm install`
+٤. قم بتثبيت معتمدات JavaScript &#x202B;: `npm install`
 
-4. قم بنسخ ملف `.env.example` إلى ملف `.env` جديد: `cp .env.example .env`
+٥. قم بنسخ ملف `.env.example` إلى ملف `.env` جديد: `cp .env.example .env`
 
-5. قم بإنشاء مفتاح التطبيق: `php artisan key:generate`
+٦. قم بإنشاء مفتاح التطبيق: `php artisan key:generate`
 
 ## التكوين
 
-1. افتح ملف `.env` وقم بتكوين إعدادات قاعدة البيانات الخاصة بك:
+١. افتح ملف `.env` وقم بتكوين إعدادات قاعدة البيانات الخاصة بك:
 
    - لاستخدام Laravel Sail، قم بتعيين `DB_CONNECTION=mysql` و `DB_HOST=mysql`
    - لاستخدام MySQL المحلي، قم بتعيين `DB_CONNECTION=mysql` و `DB_HOST=127.0.0.1`، ثم أدخل قيم `DB_DATABASE` و `DB_USERNAME` و `DB_PASSWORD`
 
-2. (اختياري) قم بتكوين Laravel Sail لاستخدام إعدادات قاعدة البيانات الصحيحة في ملف `docker-compose.yml` إذا كنت تستخدم Laravel Sail.
+٢. (اختياري) قم بتكوين Laravel Sail لاستخدام إعدادات قاعدة البيانات الصحيحة في ملف `docker-compose.yml` إذا كنت تستخدم Laravel Sail.
 
 ## تشغيل المشروع
 
 ### باستخدام Laravel Sail (مستحسن)
 
-1. شغّل Laravel Sail: `./vendor/bin/sail up`
+١. شغّل Laravel Sail &#x202B;: `./vendor/bin/sail up`
 
-2. قم بتشغيل ترحيلات قاعدة البيانات: `./vendor/bin/sail artisan migrate`
+٢. قم بتشغيل ترحيلات قاعدة البيانات: `./vendor/bin/sail artisan migrate`
 
 ### باستخدام MySQL المحلي و PHP artisan
 
-1. شغّل خادم MySQL المحلي.
+١. شغّل خادم MySQL المحلي.
 
-2. قم بتشغيل ترحيلات قاعدة البيانات: `php artisan migrate`
+٢. قم بتشغيل ترحيلات قاعدة البيانات: `php artisan migrate`
 
 ### تشغيل أوامر npm
 
-1. قم بتجميع موارد التطبيق للتطوير: `npm run dev`
+١. قم بتجميع موارد التطبيق للتطوير: `npm run dev`
 
    - بدلاً من ذلك، قم بتجميع موارد التطبيق للإنتاج: `npm run build`
 
-2. (اختياري) راقب التغييرات في موارد التطبيق وأعد تجميعها تلقائيًا: `npm run watch`
+٢. (اختياري) راقب التغييرات في موارد التطبيق وأعد تجميعها تلقائيًا: `npm run watch`
 
 ## التطوير
 
