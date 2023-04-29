@@ -10,83 +10,85 @@
   - [جدول المحتويات](#جدول-المحتويات)
   - [المتطلبات الأساسية](#المتطلبات-الأساسية)
   - [التثبيت](#التثبيت)
-  - [التهيئة](#التهيئة)
-  - [إضافة المكونات](#إضافة-المكونات)
-    - [Laravel](#laravel)
-    - [Livewire](#livewire)
-    - [Tailwind](#tailwind)
-  - [الأوامر المفيدة](#الأوامر-المفيدة)
-- [المساهمة](#المساهمة)
+  - [التكوين](#التكوين)
+  - [تشغيل المشروع](#تشغيل-المشروع)
+    - [باستخدام Laravel Sail (مستحسن)](#باستخدام-laravel-sail-مستحسن)
+    - [باستخدام MySQL المحلي و PHP artisan](#باستخدام-mysql-المحلي-و-php-artisan)
+    - [تشغيل أوامر npm](#تشغيل-أوامر-npm)
+  - [التطوير](#التطوير)
+    - [إضافة المكونات](#إضافة-المكونات)
+      - [Laravel](#laravel)
+      - [Livewire](#livewire)
+      - [Tailwind](#tailwind)
+    - [الأوامر المفيدة](#الأوامر-المفيدة)
+  - [المساهمة](#المساهمة)
+  - [الترخيص](#الترخيص)
+  - [شكر وتقدير](#شكر-وتقدير)
 
 ## المتطلبات الأساسية
 
 <div dir="ltr" style="text-align: left;">
 
-- PHP >= 7.3
+- PHP >= 8.2
+- MySQL
 - Composer
-- Node.js & NPM
-- Docker (لـ Sail)
+- Node.js and npm
+- Docker (for Sail)
+- Laravel Sail (optional)
 
 </div>
 
 
 ## التثبيت
 
-1. استنساخ المستودع:
+1. استنسخ المستودع: `git clone https://github.com/khalidfsh/careers-app.git`
 
-```bash
-git clone https://github.com/yourusername/careers-app.git
-cd careers-app
-```
+1. انتقل إلى مجلد المشروع: `cd careers-app`
 
-2. تثبيت اعتماديات PHP:
+2. قم بتثبيت معتمدات PHP: `composer install`
 
-```bash
-composer install
-```
+3. قم بتثبيت معتمدات JavaScript: `npm install`
 
-3. تثبيت اعتماديات JavaScript:
+4. قم بنسخ ملف `.env.example` إلى ملف `.env` جديد: `cp .env.example .env`
 
-```bash
-npm install
-```
+5. قم بإنشاء مفتاح التطبيق: `php artisan key:generate`
 
-4. يمكنك نسخ ملف البيئة المثال وتهيئة التطبيق:
+## التكوين
 
-```bash
-cp .env.example .env
-```
+1. افتح ملف `.env` وقم بتكوين إعدادات قاعدة البيانات الخاصة بك:
 
-قم بتحديث ملف `.env` بتفاصيل قاعدة البيانات والتكوينات المطلوبة الأخرى.
+   - لاستخدام Laravel Sail، قم بتعيين `DB_CONNECTION=mysql` و `DB_HOST=mysql`
+   - لاستخدام MySQL المحلي، قم بتعيين `DB_CONNECTION=mysql` و `DB_HOST=127.0.0.1`، ثم أدخل قيم `DB_DATABASE` و `DB_USERNAME` و `DB_PASSWORD`
 
-5. إنشاء مفتاح التطبيق:
+2. (اختياري) قم بتكوين Laravel Sail لاستخدام إعدادات قاعدة البيانات الصحيحة في ملف `docker-compose.yml` إذا كنت تستخدم Laravel Sail.
 
-```bash
-php artisan key:generate
-```
+## تشغيل المشروع
 
-6. تشغيل ترحيل قاعدة البيانات والبذور (إن وجدت):
+### باستخدام Laravel Sail (مستحسن)
 
-```bash
-php artisan migrate --seed
-```
+1. شغّل Laravel Sail: `./vendor/bin/sail up`
 
-7. بدء بيئة التطوير Sail:
+2. قم بتشغيل ترحيلات قاعدة البيانات: `./vendor/bin/sail artisan migrate`
 
-```bash
-./vendor/bin/sail up -d
-```
+### باستخدام MySQL المحلي و PHP artisan
 
-يجب أن يكون التطبيق الآن قابلاً للوصول إليه على [http://localhost](http://localhost).
+1. شغّل خادم MySQL المحلي.
 
-## التهيئة
+2. قم بتشغيل ترحيلات قاعدة البيانات: `php artisan migrate`
 
-- قم بتكوين متغيرات بيئة التطبيق في ملف `.env`.
-- حدّث ملفات `config/*.php` لتخصيص إعدادات التطبيق.
+### تشغيل أوامر npm
 
-## إضافة المكونات
+1. قم بتجميع موارد التطبيق للتطوير: `npm run dev`
 
-### Laravel
+   - بدلاً من ذلك، قم بتجميع موارد التطبيق للإنتاج: `npm run build`
+
+2. (اختياري) راقب التغييرات في موارد التطبيق وأعد تجميعها تلقائيًا: `npm run watch`
+
+## التطوير
+
+### إضافة المكونات
+
+#### Laravel
 
 1. إنشاء نموذج جديد وترحيل ومصنع ومنشئ بيانات:
 
@@ -101,7 +103,7 @@ php artisan make:controller JobController --resource
 ```
 
 
-### Livewire
+#### Livewire
 
 1. إنشاء مكون Livewire جديد:
 
@@ -111,7 +113,7 @@ php artisan make:livewire JobList
 
 سينشئ هذا فئة جديدة في `app/Http/Livewire` ومشهد جديد في `resources/views/livewire`.
 
-### Tailwind
+#### Tailwind
 
 1. استيراد مكونات Tailwind الجديدة في `resources/css/app.css`
 
@@ -131,7 +133,7 @@ touch resources/css/components/new-component.css
 npm run dev
 ```
 
-## الأوامر المفيدة
+### الأوامر المفيدة
 - تشغيل الاختبارات:
 
 ```bash
@@ -176,6 +178,15 @@ php artisan tinker
 
 
 
-# المساهمة
+## المساهمة
+
 يرجى قراءة CONTRIBUTING.md للتفاصيل حول قوانين سلوكنا، والعملية المتبعة لإرسال طلبات السحب إلينا.
+
+## الترخيص
+
+يتم ترخيص هذا المشروع بموجب رخصة تطبيق Careers-App. راجع ملف [LICENSE](LICENSE.ar.md) للحصول على التفاصيل.
+
+## شكر وتقدير
+
+- التجمع الصحي بمنطقة حائل.
 </div>

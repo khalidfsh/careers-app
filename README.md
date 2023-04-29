@@ -13,79 +13,82 @@ A web application to list available jobs in the company and receive job applicat
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Configuration](#configuration)
-  - [Adding Components](#adding-components)
-    - [Laravel](#laravel)
-    - [Livewire](#livewire)
-    - [Tailwind](#tailwind)
-  - [Useful Commands](#useful-commands)
+  - [Running the project](#running-the-project)
+    - [Using Laravel Sail (recommended)](#using-laravel-sail-recommended)
+    - [Using local MySQL and PHP artisan](#using-local-mysql-and-php-artisan)
+    - [Running npm commands](#running-npm-commands)
+  - [Development](#development)
+    - [Adding Components](#adding-components)
+      - [Laravel](#laravel)
+      - [Livewire](#livewire)
+      - [Tailwind](#tailwind)
+    - [Useful Commands](#useful-commands)
   - [Contributing](#contributing)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
   - [About Laravel](#about-laravel)
   - [Learning Laravel](#learning-laravel)
 
 ## Prerequisites
 
-- PHP >= 8.1
+- PHP >= 8.2
+- MySQL
 - Composer
-- Node.js & NPM
+- Node.js and npm
 - Docker (for Sail)
+- Laravel Sail (optional)
+
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository: `git clone https://github.com/khalidfsh/careers-app.git`
 
-```bash
-git clone https://github.com/yourusername/careers-app.git
-cd careers-app
-```
+2. Navigate to the project folder: `cd careers-app`
 
-2. Install PHP dependencies:
+3. Install PHP dependencies: `composer install`
 
-```bash
-composer install
-```
+4. Install JavaScript dependencies: `npm install`
 
-3. Install JavaScript dependencies:
+5. Copy the `.env.example` file to a new `.env` file: `cp .env.example .env`
 
-```bash
-npm install
-```
-
-4. Copy the example environment file and configure the application:
-
-```bash
-cp .env.example .env
-```
-
-Update the `.env` file with your database and other required configurations.
-
-5. Generate an application key:
-
-```bash
-php artisan key:generate
-```
-
-6. Run database migrations and seeders (if any):
-
-```bash
-php artisan migrate --seed
-```
-
-7. Start the Sail development environment:
-
-```bash
-./vendor/bin/sail up -d
-```
-
-The application should now be accessible at [http://localhost](http://localhost).
+6. Generate an application key: `php artisan key:generate`
 
 ## Configuration
 
-- Configure your application's environment variables in the `.env` file.
-- Update the `config/*.php` files to customize the application settings.
+1. Open the `.env` file and configure your database settings:
 
-## Adding Components
+   - For Laravel Sail, set `DB_CONNECTION=mysql` and `DB_HOST=mysql`
+   - For local MySQL, set `DB_CONNECTION=mysql`, `DB_HOST=127.0.0.1`, and enter your `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`
 
-### Laravel
+2. (Optional) Configure Laravel Sail to use the correct database settings in `docker-compose.yml` if you are using Laravel Sail.
+
+## Running the project
+
+### Using Laravel Sail (recommended)
+
+1. Start Laravel Sail: `./vendor/bin/sail up`
+
+2. Run database migrations: `./vendor/bin/sail artisan migrate`
+
+### Using local MySQL and PHP artisan
+
+1. Start your local MySQL server.
+
+2. Run database migrations: `php artisan migrate`
+
+### Running npm commands
+
+1. Compile your assets for development: `npm run dev`
+
+   - Alternatively, compile your assets for production: `npm run build`
+
+2. (Optional) Watch for changes in your assets and automatically recompile them: `npm run watch`
+
+## Development
+
+### Adding Components
+
+#### Laravel
 
 1. Generate a new model, migration, factory, and seeder:
 
@@ -99,7 +102,7 @@ php artisan make:model --migration --factory --seeder Job
 php artisan make:controller JobController --resource
 ```
 
-### Livewire
+#### Livewire
 
 1. Generate a new Livewire component:
 
@@ -109,7 +112,7 @@ php artisan make:livewire JobList
 
 This will create a new class in `app/Http/Livewire` and a new view in `resources/views/livewire`.
 
-### Tailwind
+#### Tailwind
 
 1. Import new Tailwind components in `resources/css/app.css`:
 
@@ -129,7 +132,7 @@ touch resources/css/components/new-component.css
 npm run dev
 ```
 
-## Useful Commands
+### Useful Commands
 
 - Run tests:
 
@@ -177,7 +180,13 @@ php artisan tinker
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
+## License
 
+This project is licensed under the Careers-App License. See the [LICENSE](LICENSE.md) file for details.
+
+## Acknowledgments
+
+- Hail Health Cluster.
 
 
 
