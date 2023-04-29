@@ -54,9 +54,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:flex sm:ms-10">
-                    {{-- TODO: User Managment --}}
-                    {{-- <x-nav-link href="{{ route('admin.users') }}" --}}
-                    <x-nav-link href="#" :active="request()->routeIs('admin/users')">
+                    <x-nav-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin.users')">
                         {{ __('Users Managment') }}
                     </x-nav-link>
                 </div>
@@ -241,7 +239,7 @@
                 <x-responsive-nav-link href="{{ route('admin.jobs') }}" :active="request()->routeIs('admin.jobs')">
                     {{ __('Jobs Mangment') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="{{ route('admin.jobs') }}" :active="request()->routeIs('admin.users')">
+                <x-responsive-nav-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin.users')">
                     {{ __('Users Managment') }}
                 </x-responsive-nav-link>
                 <div class="space-y-1 pt-2 pb-3">

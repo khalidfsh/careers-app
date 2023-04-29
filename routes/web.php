@@ -59,6 +59,8 @@ Route::middleware([
         ]);
     })->name('admin.job');
 
+    Route::view('/admin/users', 'admin.users.index')->name('admin.users');
+
 
 });
 
