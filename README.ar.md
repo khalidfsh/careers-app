@@ -17,9 +17,9 @@
     - [تشغيل أوامر npm](#تشغيل-أوامر-npm)
   - [التطوير](#التطوير)
     - [إضافة المكونات](#إضافة-المكونات)
-      - [‫Laravel](#laravel)
-      - [‫Livewire](#livewire)
-      - [‫Tailwind](#tailwind)
+      - [مكون Laravel](#مكون-laravel)
+      - [مكون Livewire](#مكون-livewire)
+      - [مكون Tailwind](#مكون-tailwind)
     - [الأوامر المفيدة](#الأوامر-المفيدة)
   - [المساهمة](#المساهمة)
   - [الترخيص](#الترخيص)
@@ -88,7 +88,7 @@
 
 ### إضافة المكونات
 
-#### &#x202B;Laravel
+#### مكون Laravel
 
 1. إنشاء نموذج جديد وترحيل ومصنع ومنشئ بيانات:
 
@@ -103,7 +103,7 @@ php artisan make:controller JobController --resource
 ```
 
 
-#### &#x202B;Livewire
+#### مكون Livewire
 
 1. إنشاء مكون Livewire جديد:
 
@@ -113,7 +113,7 @@ php artisan make:livewire JobList
 
 سينشئ هذا فئة جديدة في `app/Http/Livewire` ومشهد جديد في `resources/views/livewire`.
 
-#### &#x202B;Tailwind
+#### مكون Tailwind
 
 1. استيراد مكونات Tailwind الجديدة في `resources/css/app.css`
 
