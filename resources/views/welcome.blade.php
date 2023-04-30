@@ -5,8 +5,8 @@
             <div class="p-6 text-end sm:fixed sm:top-0 sm:end-0">
                 @auth
                     <a class="font-semibold text-gray-600 hover:text-gray-900 focus:rounded-sm focus:outline focus:outline-2 focus:outline-indigo-500 dark:text-gray-400 dark:hover:text-white"
-                        href="{{ url('/dashboard') }}">
-                        {{ __('Dashboard') }}</a>
+                        href="{{ url('/home') }}">
+                        {{ __('Home') }}</a>
                 @else
                     <a class="font-semibold text-gray-600 hover:text-gray-900 focus:rounded-sm focus:outline focus:outline-2 focus:outline-indigo-500 dark:text-gray-400 dark:hover:text-white"
                         href="{{ route('login') }}">

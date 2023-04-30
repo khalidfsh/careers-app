@@ -22,11 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/locale/switch', [LocaleController::class, 'switch'])->name('locale.switch');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
+Route::get('/locale/switch', [LocaleController::class, 'switch'])->name('locale.switch');
+
+Route::get('jobs', [JobsController::class, 'index'])->name('jobs');
 Route::get('jobs/{job}', [JobsController::class, 'show'])->name('jobs.show');
 
 
@@ -35,34 +37,37 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('jobs', [JobsController::class, 'index'])->name('jobs');
 
 
     Route::get('resume', function () {
         return view('resume.dashboard');
     })->name('resume');
 
+    Route::prefix('admin')->middleware(['only.admin'])->group(function () {
+        Route::get('dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
 
-    Route::get('admin/jobs', function () {
-        return view('admin.jobs.index');
-    })->name('admin.jobs');
+        Route::view('admin/jobs', 'admin.jobs.index')->name('admin.jobs');
 
-    Route::get('admin/users', function () {
-        return view('admin.jobs');
-    })->name('admin.users');
-
-    // Route::get('/admin/job/{id}', JobManage::class);
-    Route::get('/admin/job',function () {
-        return view('admin.job.index', [
+        Route::view('/admin/job', 'admin.job.index', [
             'isNew' => true,
-            'job' => null,
-        ]);
-    })->name('admin.job');
+            'jobId' => null,
+        ])->name('admin.job');
 
-    Route::view('/admin/users', 'admin.users.index')->name('admin.users');
+        Route::get('/admin/jobs/{id}', function ($id) {
+            return view('admin.job.index', [
+                'isNew' => false,
+                'jobId' => $id,
+            ]);
+        })->where(['id' => '[0-9]+'])->name('admin.job.manage');
 
+        Route::view('/admin/users', 'admin.users.index')->name('admin.users');
+    });
 
 });
+
+
 
 // Route::get('/jobs', JobList::class)->name('jobs');
 // Route::get('/jobs/manage', JobManagement::class)->name('jobs.manage');
