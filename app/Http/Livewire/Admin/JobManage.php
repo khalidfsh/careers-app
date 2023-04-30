@@ -15,6 +15,7 @@ class JobManage extends Component
      * @var array
      */
     public $state = [];
+    public $jobId = null;
     public $isNew = true;
 
     public $qualifications = [];
@@ -87,13 +88,14 @@ class JobManage extends Component
 
 
         // if we are editing a job, load the job's data
-        if (isset($this->state->id)) {
-            $this->state = Job::find($this->state->id)->toArray();
+        if (isset($this->jobId)) {
+            $this->state = Job::find($this->jobId)->toArray();
             $this->qualifications = json_decode($this->state['qualifications']);
             $this->experiencePerQualifications = json_decode($this->state['experience_years_per_qualification'], true);
             $this->specializations = implode(', ', json_decode($this->state['specializations']));
             $this->isNew = false;
         } else {
+            $this->isNew = true;
             $this->qualifications = [
                 'diploma',
             ];

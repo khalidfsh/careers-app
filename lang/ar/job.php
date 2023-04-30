@@ -10,7 +10,7 @@ return [
     'update_job' => 'تحديث الوظيفة',
     'new_announcement' => 'إعلان وظيفي جديد',
     'manage_announcement_description' => 'إدارة الإعلانات الوظيفية',
-    'edit_job_announcement' => 'تحديث الإعلان الوظيفي',
+    'edit_announcement' => 'تحديث الإعلان الوظيفي',
     'apply' => 'تقدم',
     'title' => 'العنوان',
     'title_example' => 'مبرمج ...',

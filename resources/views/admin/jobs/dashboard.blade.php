@@ -16,7 +16,7 @@
                     </div> --}}
                     <div class="pt-4 sm:p-6">
                         <h3 class="mb-2 text-2xl font-bold"><a class="text-blue-500 hover:text-blue-700"
-                                href="{{ route('jobs.show', ['job' => $job]) }}">{{ $job['title'] }}</a></h3>
+                                href="{{ route('admin.job.manage', ['id' => $job->id]) }}">{{ $job['title'] }}</a></h3>
                         <p class="dark:text-white">{{ Str::limit($job->description, 150) }}</p>
                         <div class="grid grid-cols-2 gap-4 dark:text-white">
                             <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.location') }}:</strong>
