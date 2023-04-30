@@ -48,21 +48,21 @@ Route::middleware([
             return view('dashboard');
         })->name('dashboard');
 
-        Route::view('admin/jobs', 'admin.jobs.index')->name('admin.jobs');
+        Route::view('jobs', 'admin.jobs.index')->name('admin.jobs');
 
-        Route::view('/admin/job', 'admin.job.index', [
+        Route::view('job', 'admin.job.index', [
             'isNew' => true,
             'jobId' => null,
         ])->name('admin.job');
 
-        Route::get('/admin/jobs/{id}', function ($id) {
+        Route::get('jobs/{id}', function ($id) {
             return view('admin.job.index', [
                 'isNew' => false,
                 'jobId' => $id,
             ]);
         })->where(['id' => '[0-9]+'])->name('admin.job.manage');
 
-        Route::view('/admin/users', 'admin.users.index')->name('admin.users');
+        Route::view('users', 'admin.users.index')->name('admin.users');
     });
 
 });
