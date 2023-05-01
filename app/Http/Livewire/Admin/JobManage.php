@@ -89,10 +89,11 @@ class JobManage extends Component
 
         // if we are editing a job, load the job's data
         if (isset($this->jobId)) {
-            $this->state = Job::find($this->jobId)->toArray();
+            $this->state = Job::find($this->jobId);
             $this->qualifications = json_decode($this->state['qualifications']);
             $this->experiencePerQualifications = json_decode($this->state['experience_years_per_qualification'], true);
             $this->specializations = implode(', ', json_decode($this->state['specializations']));
+            $this->requirements =  implode(', ', json_decode($this->state['extra_requirements']));
             $this->isNew = false;
         } else {
             $this->isNew = true;
@@ -111,11 +112,7 @@ class JobManage extends Component
 
     public function clearFields()
     {
-        $this->state = [];
-        $this->qualifications = [];
-        $this->experiencePerQualifications = [];
-        // rerender the component
-        $this->mount();
+        redirect()->route('admin.jobs.manage');
     }
 
 
