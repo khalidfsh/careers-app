@@ -98,18 +98,24 @@ class GeneralForm extends Component
      */
     public function save()
     {
-
-        $this->state['address'] = json_encode(preg_split('/\s*(,|،)\s*/', $this->address, -1, PREG_SPLIT_NO_EMPTY));
-
         $this->validate();
+
+        // $this->state['user_id'] = auth()->id();
+        $this->state['address'] = json_encode(preg_split('/\s*(,|،)\s*/', $this->address, -1, PREG_SPLIT_NO_EMPTY));
 
         // Retrieve the authenticated user's resume, or create a new one if it doesn't exist
         $resume = Resume::firstOrNew(['user_id' => auth()->id()]);
 
         // Update the resume with the new data
         $resume->fill($this->state);
-        $resume->save();
 
+        // Set the relationship between the User and the Resume using associate method only for new resumes
+        if (!$resume->exists) {
+            $resume->user()->associate(auth()->user());
+        }
+
+        // Save the resume
+        $resume->save();
         // emit saved
         $this->emit('saved');
         // return redirect()->route('resume');
