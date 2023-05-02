@@ -1,5 +1,9 @@
 @tailwind base;
 
+@tailwind components;
+@tailwind utilities;
+
+
 @layer base {
     .logo-color-1 {
         stop-color: #21145f;
@@ -12,7 +16,17 @@
     .white-logo-color {
         stop-color: #f1f1f1;
     }
+
+    [dir=rtl] select {
+        background-position: left 0.5rem center;        
+    }
+
 }
 
-@tailwind components;
-@tailwind utilities;
+
+@layer components {
+    [dir='rtl'] .rtl-dropdown-content-left {
+        right: auto;
+        left: 0;
+    }
+}

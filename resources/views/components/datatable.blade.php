@@ -1,13 +1,7 @@
 @props(['filters' => '', 'actions' => '', 'thead' => '', 'tbody' => '', 'data' => '', 'searchModel' => ''])
 
-<div class="mb-5">
-    @if (session()->has('flash.banner'))
-        <x-banner style="{{ session('flash.bannerStyle') }}" message="{{ session('flash.banner') }}" />
-    @endif
-</div>
-
 @if ($searchModel != '' || $actions != '')
-    <div class="mb-2 mx-2 flex flex-col justify-between gap-3 md:flex-row">
+    <div class="my-5 mx-5 flex flex-col justify-between gap-3 md:flex-row ">
         @if ($searchModel != '')
             <div class="relative order-2 rounded-md shadow-sm md:order-1">
                 <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
@@ -36,7 +30,7 @@
 
 @if ($filters != '')
     <div class="mb-5 mx-4">
-        <x-label class="text-xl text-gray-500" for="filters">{{ __('Filters') }}</x-label>
+        <x-label class="text-xl" for="filters">{{ __('Filters') }}</x-label>
         <div id="filters" name="filters" class="">
             <div class="flex flex-wrap items-center gap-3">
                 {{ $filters }}

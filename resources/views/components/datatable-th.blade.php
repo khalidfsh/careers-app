@@ -1,6 +1,6 @@
 @props(['sortable' => false, 'field' => '', 'title' => '', 'sortBy', 'sortAsc'])
 
-<th class="px-6 py-4 text-start text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300"
+<th class="px-2 py-2 text-start text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300"
     scope="col">
 
     @if ($sortable)

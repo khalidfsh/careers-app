@@ -209,8 +209,18 @@
     "Manage your jobs and resumes. You can update your jobs and resumes and manage them.": "إدارة الوظائف والسير الذاتية الخاصة بك. يمكنك تحديث الوظائف والسير الذاتية الخاصة بك وإدارتها.",
     "Extract data of users and extract data of resumes and jobs. You can extract data of users and extract data of resumes and jobs.": "استخراج بيانات المستخدمين واستخراج بيانات السير الذاتية والوظائف. يمكنك استخراج بيانات المستخدمين واستخراج بيانات السير الذاتية والوظائف.",
 
+    "Owner": "مالك",
     "Admin": "مدير",
+    "Viewer": "مشاهد",
+    "Manage": "إدارة",
+    "Assigning admin role": "تعيين دور المدير",
+    "Assign viewer role": "تعيين دور المشاهد",
+    "Clear user role": "مسح دور المستخدم",
     "Users Managment": "إدارة المستخدمين",
+    "User role updated.": "تم تحديث دور المستخدم.",
+    "User role cleared.": "تم مسح دور المستخدم.",
+
+
     "Please login": "الرجاء تسجيل الدخول",
     "Guest": "زائر",
     "Saudi": "سعودي",
@@ -237,7 +247,7 @@
     "Select Department...": "اختر القسم...",
     "Select Job...": "اختر وظيفة...",
     "Filters": "الفلاتر",
-    "Only active": "النشط فقط",
-    "Only admin": "المدير فقط",
+    "Active users": "المستخدمين النشطين",
+    "Staff only": "الموظفين فقط",
     "Has resume": "لديه سيرة ذاتية"
 }

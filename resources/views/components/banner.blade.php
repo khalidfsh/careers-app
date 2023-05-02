@@ -3,7 +3,7 @@
 <div style="display: none;"
     x-data="{{ json_encode(['show' => true, 'style' => $style, 'message' => $message]) }}"
     :class="{
-        'bg-teal-500': style == 'success',
+        'bg-emerald-700': style == 'success',
         'bg-red-700': style == 'danger',
         'bg-gray-500': style != 'success' && style !=
             'danger'
@@ -18,7 +18,7 @@
         <div class="flex flex-wrap items-center justify-between">
             <div class="flex w-0 min-w-0 flex-1 items-center">
                 <span class="flex rounded-lg p-2"
-                    :class="{ 'bg-teal-600': style == 'success', 'bg-red-600': style == 'danger' }">
+                    :class="{ 'bg-emerald-800': style == 'success', 'bg-red-600': style == 'danger' }">
                     <svg class="h-5 w-5 text-white"
                         x-show="style == 'success'"
                         xmlns="http://www.w3.org/2000/svg"

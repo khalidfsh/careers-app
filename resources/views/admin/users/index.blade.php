@@ -1,4 +1,10 @@
 <x-app-layout>
+    {{-- <div class="mb-5">
+        @if( session()->has('flash.banner') )
+            <x-banner style="{{ session('flash.bannerStyle') }}" message="{{ session('flash.banner') }}" />
+        @endif
+    </div> --}}
+
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">

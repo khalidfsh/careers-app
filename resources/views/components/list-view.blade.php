@@ -1,10 +1,10 @@
 @props(['filters' => '', 'actions' => '', 'data' => '', 'searchModel' => ''])
-<div class="mb-5">
+{{-- <div class="mb-5">
     @if (session()->has('flash.banner'))
         <x-banner style="{{ session('flash.bannerStyle') }}"
             message="{{ session('flash.banner') }}" />
     @endif
-</div>
+</div> --}}
 
 @if ($searchModel != '' || $actions != '')
     <div class="flex flex-col justify-between gap-3 md:flex-row">

@@ -60,10 +60,25 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    // Gates and Roles; Owner = 9, Admin = 8, viewer = 5, User = 1
+    public function promoteToAdmin()
+    {
+        $this->role_id = 8;
+        $this->save();
+    }
+    public function promoteToViewer()
+    {
+        $this->role_id = 5;
+        $this->save();
+    }
+
     public function isAdmin()
     {
-        // return $this->role === 'admin';
-        return $this->is_admin;
+        return $this->role_id > 7;
+    }
+    public function isViewer()
+    {
+        return $this->role_id > 4;
     }
 
     public function jobs()
