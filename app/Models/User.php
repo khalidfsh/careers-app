@@ -81,6 +81,11 @@ class User extends Authenticatable
         return $this->role_id > 4;
     }
 
+    public function resume()
+    {
+        return $this->hasOne(Resume::class);
+    }
+
     public function jobs()
     {
         return $this->hasMany(Job::class);
