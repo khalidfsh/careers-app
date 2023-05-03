@@ -33,10 +33,10 @@
 
         <x-slot name="filters">
 
-            <x-select class="px-7" wire:model="jobType" id="jobType" name="jobType" :options="$jobTypeOptions" />
-            <x-select class="px-7" wire:model="qualification" id="qualification" name="qualification"
+            <x-select class="rtl:pe-7 text-sm" wire:model="jobType" id="jobType" name="jobType" :options="$jobTypeOptions" />
+            <x-select class="rtl:pe-7 text-sm" wire:model="qualification" id="qualification" name="qualification"
                 :options="$qualificationOptions" />
-            <x-select class="" wire:model="catagory" id="catagory" name="catagory" :options="$categoryOptions" />
+            <x-select class="text-sm" wire:model="catagory" id="catagory" name="catagory" :options="$categoryOptions" />
             <div>
                 <label class="label cursor-pointer p-0">
                     <x-checkbox class="checkbox-sm" wire:model="onlyActive" />

@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
     .logo-color-1 {
         stop-color: #21145f;
@@ -17,15 +16,13 @@
         stop-color: #f1f1f1;
     }
 
-    [dir=rtl] select {
-        background-position: left 0.5rem center;        
+    [dir="rtl"] select {
+        background-position: left 0.5rem center;
     }
-
 }
 
-
 @layer components {
-    [dir='rtl'] .rtl-dropdown-content-left {
+    [dir="rtl"] .rtl-dropdown-content-left {
         right: auto;
         left: 0;
     }
