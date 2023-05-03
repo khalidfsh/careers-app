@@ -94,8 +94,8 @@
                                 </svg>
                             </a>
                             {{-- @endif --}}
-                            <div class="flex items-center">
-                                <div class="dropdown dropdown-right dropdown-hover absolute">
+                            <div class="flex ">
+                                <div class="dropdown dropdown-right dropdown-hover relative hover:absolute">
                                     <label tabindex="0" class=""><svg class="w-6 h-6 text-gray-400"
                                             fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
