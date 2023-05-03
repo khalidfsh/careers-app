@@ -32,22 +32,15 @@ class Users extends Component
      *
      * @var array
      */
-    protected $rules = [
-        'user.name' => '',
-        'user.email' => '',
-        'user.is_admin' => '',
+    // protected $rules = [
+    //     'user.name' => '',
+    //     'user.email' => '',
+    //     'user.role' => '',
 
-        'perPage' => 'sometimes|integer|min:1|max:100',
-        'sortDirection' => 'sometimes|in:asc,desc',
-    ];
+    // ];
 
     public function mount()
     {
-        $this->validationAttributes = [
-            'user.name' => __('Name'),
-            'user.email' => __('Email'),
-        ];
-
         $this->categoryOptions = array_merge(['' => __('Select Department...')], config('lists.job_categories'));
     }
 
