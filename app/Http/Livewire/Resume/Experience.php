@@ -50,6 +50,9 @@ class Experience extends Component
 
     public function showAddModalManager()
     {
+        if (!auth()->user()->resume) {
+            return redirect()->route('resume')->with(['flash.banner' => __('Fill out your general information first.'), 'flash.bannerStyle' => 'danger']);
+        }
         $this->resetValidation();
         $this->resetErrorBag();
         $this->state = [
