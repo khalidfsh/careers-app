@@ -13,7 +13,7 @@
             <div class="space-y-6">
                 <div class="flex items-center justify-end">
                     <x-button wire:click="showAddModalManager">
-                        {{ __('Add') }}
+                        {{ __('resume.qualification.create') }}
                     </x-button>
                 </div>
 
@@ -71,7 +71,7 @@
     <!-- Create qualification dialog modal -->
     <x-dialog-modal wire:model="showModalManagerToggle">
         <x-slot name="title">
-            {{ isset($this->state->id) ? __('resume.qualification.update') : __('resume.qualification.create') }}
+            {{ isset($this->state['id']) ? __('resume.qualification.edit') : __('resume.qualification.create') }}
         </x-slot>
 
         <x-slot name="content">
@@ -101,14 +101,14 @@
                     </div>
                     {{-- start date --}}
                     <div class="col-span-3">
-                        <x-label for="start_date" value="{{ __('resume.qualification.start_date') }}" />
+                        <x-label for="start_date" value="{{ __('resume.start_date') }}" />
                         <x-input class="mt-1 block w-full" id="start_date" type="date"
                             wire:model.defer="state.start_date" />
                         <x-input-error class="mt-2" for="state.start_date" />
                     </div>
                     {{-- end date --}}
                     <div class="col-span-3">
-                        <x-label for="end_date" value="{{ __('resume.qualification.end_date') }}" />
+                        <x-label for="end_date" value="{{ __('resume.end_date') }}" />
                         <x-input class="mt-1 block w-full" id="end_date" type="date"
                             wire:model.defer="state.end_date" />
                         <x-input-error class="mt-2" for="state.end_date" />

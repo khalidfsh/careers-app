@@ -35,10 +35,10 @@ class Resume extends Model
         return $this->hasMany(Qualification::class, 'resume_id');
     }
 
-// public function experiences()
-// {
-//     return $this->hasMany(Experience::class);
-// }
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class, 'resume_id');
+    }
 
 // public function skills()
 // {

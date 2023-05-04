@@ -23,6 +23,8 @@
             @livewire('resume.general-form')
             <x-section-border />
             @livewire('resume.qualification')
+            <x-section-border />
+            @livewire('resume.experience')
         </div>
     </div>
 </x-app-layout>

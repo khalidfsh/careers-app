@@ -58,8 +58,8 @@ class Qualification extends Component
             'state.title' => __('resume.qualification.title'),
             'state.degree' => __('resume.qualification.title_type'),
             'state.institution' => __('resume.qualification.institution'),
-            'state.start_date' => __('resume.qualification.start_date'),
-            'state.end_date' => __('resume.qualification.end_date'),
+            'state.start_date' => __('resume.start_date'),
+            'state.end_date' => __('resume.end_date'),
             'state.grade' => __('resume.qualification.grade'),
         ];
         // check if user has resume

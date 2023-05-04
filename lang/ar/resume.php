@@ -22,8 +22,17 @@ return [
     'address_error' => 'حقل العنوان مطلوب.',
     'qualification_name' => 'المؤهلات العلمية',
     'qualification_description' => 'يرجى إدخال مؤهلاتك العلمية.',
+    'experince_name' => 'الخبرات العملية',
+    'experince_description' => 'يرجى إدخال خبراتك العملية.',
+    'start_date' => 'تاريخ البدء',
+    'start_date_error' => 'حقل تاريخ البدء مطلوب.',
+    'end_date' => 'تاريخ الانتهاء',
+    'end_date_error' => 'حقل تاريخ الانتهاء مطلوب.',
+    'description' => 'الوصف',
+    'description_error' => 'حقل الوصف مطلوب.',
     'qualification' => [
         'create' => 'إضافة مؤهل',
+        'edit' => 'تعديل المؤهل',
         'title' => 'المؤهل',
         'select' => 'اختر المؤهل',
         'types' => [
@@ -38,14 +47,16 @@ return [
         'title_error' => 'حقل المؤهل مطلوب.',
         'institution' => 'المؤسسة',
         'institution_error' => 'حقل المؤسسة مطلوب.',
-        'start_date' => 'تاريخ البدء',
-        'start_date_error' => 'حقل تاريخ البدء مطلوب.',
-        'end_date' => 'تاريخ الانتهاء',
-        'end_date_error' => 'حقل تاريخ الانتهاء مطلوب.',
-        'description' => 'الوصف',
-        'description_error' => 'حقل الوصف مطلوب.',
         'grade' => 'المعدل',
         'grade_error' => 'حقل المعدل مطلوب.',
-
     ],
+    'experience' => [
+        'create' => 'إضافة خبرة',
+        'edit' => 'تعديل خبرة',
+        'title' => 'المسمى الوظيفي',
+        'title_error' => 'حقل المسمى الوظيفي مطلوب.',
+        'company' => 'الشركة',
+        'company_error' => 'حقل الشركة مطلوب.',
+        'is_current' => 'مازلت أعمل في هذه الشركة',
+    ]
 ];

@@ -264,6 +264,9 @@
     "Staff only": "الموظفين فقط",
     "Has resume": "لديه سيرة ذاتية",
 
-    "Qualification updated!": "تم تحديث المؤهل!",
-    "Qualification deleted!": "تم حذف المؤهل!"
+    "Qualification saved!": "تم تحديث المؤهل!",
+    "Qualification deleted!": "تم حذف المؤهل!",
+    "Experience saved!": "تم تحديث الخبرة!",
+    "Experience deleted!": "تم حذف الخبرة!"
+
 }
