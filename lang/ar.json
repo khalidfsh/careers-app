@@ -231,7 +231,7 @@
     "Active": "فعال",
     "Scheduled": "مجدول",
     "Done": "منتهي",
-    "remaining days": "الايام المتبقية",
+    "remaining days": "الأيام المتبقية",
 
     "Please login": "الرجاء تسجيل الدخول",
     "Guest": "زائر",
@@ -262,5 +262,8 @@
     "Filters": "الفلاتر",
     "Active users": "المستخدمين النشطين",
     "Staff only": "الموظفين فقط",
-    "Has resume": "لديه سيرة ذاتية"
+    "Has resume": "لديه سيرة ذاتية",
+
+    "Qualification updated!": "تم تحديث المؤهل!",
+    "Qualification deleted!": "تم حذف المؤهل!"
 }

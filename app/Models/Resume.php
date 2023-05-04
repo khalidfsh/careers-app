@@ -30,10 +30,10 @@ class Resume extends Model
         return $this->belongsTo(User::class);
     }
 
-// public function qualifications()
-// {
-//     return $this->hasMany(Qualification::class);
-// }
+    public function qualifications()
+    {
+        return $this->hasMany(Qualification::class, 'resume_id');
+    }
 
 // public function experiences()
 // {
