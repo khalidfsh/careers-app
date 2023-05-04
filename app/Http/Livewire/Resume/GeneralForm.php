@@ -64,11 +64,11 @@ class GeneralForm extends Component
         ];
         $this->isMaleOptions = [
             1 => __("Male"),
-            0 => _("Female")
+            0 => __("Female")
         ];
         $this->isSingleOptions = [
             1 => __("Single"),
-            0 => _("Married")
+            0 => __("Married")
         ];
 
         // if user has resume
