@@ -55,21 +55,21 @@ class GeneralForm extends Component
             'address' => __('resume.address'),
         ];
 
-        $this->phoneCodes = [
-            '966' => '🇸🇦 +966',
-        ];
-        $this->isSaudiOptions = [
-            1 => __("Saudi"),
-            0 => __("None Saudi"),
-        ];
-        $this->isMaleOptions = [
-            1 => __("Male"),
-            0 => __("Female")
-        ];
-        $this->isSingleOptions = [
-            1 => __("Single"),
-            0 => __("Married")
-        ];
+        // $this->phoneCodes = [
+        //     '966' => '🇸🇦 +966',
+        // ];
+        // $this->isSaudiOptions = [
+        //     1 => __("Saudi"),
+        //     0 => __("None Saudi"),
+        // ];
+        // $this->isMaleOptions = [
+        //     1 => __("Male"),
+        //     0 => __("Female")
+        // ];
+        // $this->isSingleOptions = [
+        //     1 => __("Single"),
+        //     0 => __("Married")
+        // ];
 
         // if user has resume
         if (auth()->user()->resume) {
