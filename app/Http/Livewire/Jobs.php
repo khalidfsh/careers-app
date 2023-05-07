@@ -34,6 +34,8 @@ class Jobs extends Component
                 ->orWhere('location', 'like', '%' . $this->search . '%')
                 ->orWhere('type', 'like', '%' . $this->search . '%');
         })
+            ->whereDate('start_date', '<=', now())
+            ->whereDate('end_date', '>=', now())
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->perPage);
 
@@ -56,5 +58,4 @@ class Jobs extends Component
         }
         $this->sortBy = $field;
     }
-    // return redirect()->route('jobs.show', $this->jobId);
 }
