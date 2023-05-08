@@ -6,7 +6,7 @@ use App\Http\Controllers\JobsController;
 // use App\Http\Livewire\JobList;
 // use App\Http\Livewire\JobManagement;
 use App\Http\Livewire\admin\JobManage;
-
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +42,8 @@ Route::middleware([
     Route::get('resume', function () {
         return view('resume.dashboard');
     })->name('resume');
+
+    Route::get('/file/{userId}/{path}', [FileController::class, 'show'])->where('path', '.*')->name('file.show');
 
     Route::prefix('admin')->middleware(['only.admin'])->group(function () {
         Route::get('dashboard', function () {

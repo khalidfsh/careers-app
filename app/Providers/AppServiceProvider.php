@@ -52,6 +52,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('manage_users', function ($user) {
             return $user->isAdmin();
         });
+        Gate::define('view_documents', function ($user) {
+            return $user->isViewer();
+        });
         
     }
 }
