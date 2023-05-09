@@ -9,7 +9,8 @@ class JobsController extends Controller
 {
     public function index()
     {
-        $jobs = Job::latest()->paginate(10);
+        $jobs = Job::whereDate('start_date', '<=', now())
+            ->whereDate('end_date', '>=', now())->latest()->paginate(10);
 
         return view('jobs.index', compact('jobs'));
     }
@@ -21,5 +22,12 @@ class JobsController extends Controller
         $specializations = json_decode($job['specializations'], true);
         $requirements = json_decode($job['extra_requirements'], true);
         return view('jobs.show', compact('job', 'qualifications', 'experiencePerQualifications', 'specializations', 'requirements'));
+    }
+
+    public function getLatestJobs()
+    {
+        $jobs = Job::whereDate('start_date', '<=', now())
+            ->whereDate('end_date', '>=', now())->latest()->take(6)->get();
+        return $jobs;
     }
 }
