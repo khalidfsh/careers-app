@@ -114,11 +114,34 @@
                         <x-input-error class="mt-2" for="state.end_date" />
                     </div>
                     {{-- grade --}}
-                    <div class="col-span-3 col-start-3">
+                    <div class="col-span-3">
                         <x-label for="grade" value="{{ __('resume.qualification.grade') }}" />
                         <x-input class="mt-1 block w-full" id="grade" type="number" step="0.01"
                             wire:model.defer="state.grade" />
                         <x-input-error class="mt-2" for="state.grade" />
+                    </div>
+                    {{-- document --}}
+                    <div class="col-span-6">
+                        <x-label for="document" value="{{ __('Document') }}" />
+                        <x-input class="mt-1 w-full max-w-xs file:text-md file:py-2 file:px-4"
+                            id="document" type="file" accept="image/*,.pdf" wire:model.defer="document" />
+                        <x-input-error class="mt-2" for="document" />
+                    </div>
+                    <!-- File preview -->
+                    <div class="col-span-6">
+                        <div class="mt-2 flex justify-center mx-1">
+                            @if ($document)
+                                @if (str_starts_with($document->getMimeType(), 'image/'))
+                                    <img src="{{ $document->temporaryUrl() }}" alt="File preview"
+                                        class="w-auto h-auto rounded-lg shadow-md object-cover">
+                                @else
+                                    <p>pdf</p>
+                                @endif
+                            
+                            @elseif (isset($this->state['document_path']) && !empty($this->state['document_path']))
+                                <x-document-preview :path="$this->state['document_path']" />
+                            @endif
+                        </div>
                     </div>
                 </div>
             </form>
@@ -129,7 +152,7 @@
                 {{ __('Cancel') }}
             </x-secondary-button>
             @if (isset($this->state['id']) && !empty($this->state['id']))
-                <x-button class="ms-3 bg-red-700 text-white" wire:click="delete()" wire:loading.attr="disabled">
+                <x-button class="ms-3 bg-red-700 dark:bg-red-600 text-white dark:text-white hover:bg-red-500 hover:dark:bg-red-400" wire:click="delete()" wire:loading.attr="disabled">
                     {{ __('Delete') }}
                 </x-button>
             @endif

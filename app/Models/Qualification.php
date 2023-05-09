@@ -17,7 +17,8 @@ class Qualification extends Model
         'field_of_study',
         'start_date',
         'end_date',
-        'grade'
+        'grade',
+        'document_path'
     ];
 
     public function resume()

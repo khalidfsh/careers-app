@@ -4,23 +4,30 @@ namespace App\Http\Livewire\Resume;
 
 use Livewire\Component;
 use App\Models\Qualification as QualificationModel;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
+
 
 class Qualification extends Component
 {
 
-     /**
+    use WithFileUploads;
+
+    /**
      * The component's state.
      *
      * @var array
      */
     public $state = [];
+    public $document = '';
+
     public $data = [];
 
     public $showModalManagerToggle = false;
 
     public $titleTypeOptions = [];
 
-     /**
+    /**
      * Prepare the component.
      *
      * @return void
@@ -32,12 +39,14 @@ class Qualification extends Component
         'state.start_date' => 'nullable|date',
         'state.end_date' => 'required|date',
         'state.grade' => 'required|numeric',
+
+        'document' => 'file|mimes:png,jpeg,jpg,pdf|max:2048',
     ];
 
 
 
     public function mount()
-    { 
+    {
         $this->titleTypeOptions = [
             '' => __('resume.qualification.select'),
             'high_school' => __('resume.qualification.types.high_school'),
@@ -53,6 +62,7 @@ class Qualification extends Component
             'start_date' => null,
             'end_date' => null,
             'grade' => '',
+            'document_path' => '',
         ];
         $this->validationAttributes = [
             'state.title' => __('resume.qualification.title'),
@@ -61,6 +71,7 @@ class Qualification extends Component
             'state.start_date' => __('resume.start_date'),
             'state.end_date' => __('resume.end_date'),
             'state.grade' => __('resume.qualification.grade'),
+            'document' => __('Document'),
         ];
         // check if user has resume
         if (auth()->user()->resume) {
@@ -69,43 +80,8 @@ class Qualification extends Component
         } else {
             $this->data = [];
         }
-        
-        // $this->data = [
-        //     [
-        //         'title' => 'applied science',
-        //         'title_type' => 'high_school',
-        //         'institution' => 'Hail School',
-        //         'start_date' => '2010-01-01',
-        //         'end_date' => '2013-01-01',
-        //         'grade' => '3.5',
-        //     ],
-        //     [
-        //         'title' => 'Computer Science',
-        //         'title_type' => 'bachelor',
-        //         'institution' => 'Hail University',
-        //         'start_date' => '2013-01-01',
-        //         'end_date' => '2017-01-01',
-        //         'grade' => '3.5',
-        //     ],
-        //     [
-        //         'title' => 'Computer AI',
-        //         'title_type' => 'master',
-        //         'institution' => 'Hail University',
-        //         'start_date' => '2017-01-01',
-        //         'end_date' => '2019-01-01',
-        //         'grade' => '3.5',
-        //     ],
-        //     [
-        //         'title' => 'المحرفات الذكية في اللغة العربية',
-        //         'title_type' => 'phd',
-        //         'institution' => 'Hail University',
-        //         'start_date' => '2019-01-01',
-        //         'end_date' => '2021-01-01',
-        //         'grade' => '3.5',
-        //     ]
-        // ];
     }
-    
+
     public function showAddModalManager()
     {
         if (!auth()->user()->resume) {
@@ -119,7 +95,9 @@ class Qualification extends Component
             'start_date' => null,
             'end_date' => null,
             'grade' => '',
+            'document_path' => '',
         ];
+        $this->reset(['document']);
         $this->showModalManagerToggle = true;
     }
     public function showEditModalManager($index)
@@ -134,7 +112,16 @@ class Qualification extends Component
         $user_id = auth()->id();
 
         $this->validate();
-        // add to this->data
+
+        // Store the uploaded file and get its path
+        $documentPath = $this->document ? $this->document->store("user_{$user_id}/documents", 'private_uploads') : null;
+        // Save the file path in the database (only if a new file is uploaded)
+        if ($documentPath) {
+            $this->state['document_path'] = basename($documentPath);
+        } else {
+            unset($this->state['document_path']);
+        }
+
 
         // If the state has an 'id', it's an update operation
         if (isset($this->state['id']) && !empty($this->state['id'])) {
@@ -142,7 +129,7 @@ class Qualification extends Component
             //abort if resume_id != auth()->id()
             abort_if($qualification->resume_id != $user_id, 403, 'Unauthorized action.');
 
-            
+
             $qualification->update($this->state);
         } else {
             // Otherwise, it's a create operation
@@ -150,7 +137,7 @@ class Qualification extends Component
             auth()->user()->resume->qualifications()->save($qualification);
         }
 
-        
+
         // $this->showModalManagerToggle = false;
         return redirect()->route('resume')->with(['flash.banner' => __('Qualification saved!')]);
 
@@ -164,15 +151,22 @@ class Qualification extends Component
         //abort if resume_id != auth()->id()
         abort_if($qualification->resume_id != $user_id, 403, 'Unauthorized action.');
 
+        // Delete the file from the filesystem
+        if ($qualification->document_path) {
+            Storage::disk('private_uploads')->delete($qualification->document_path);
+        }
+
         $qualification->delete();
 
         return redirect()->route('resume')->with(['flash.banner' => __('Qualification deleted!')]);
-
-        // // Refresh the data
-        // $this->data = auth()->user()->resume->qualifications->toArray();
-        
     }
 
+    public function updatingShowModalManagerToggle()
+    {
+        $this->resetErrorBag();
+        $this->reset(['document']);
+        // dd($this);
+    }
 
     /**
      * Render the component.
