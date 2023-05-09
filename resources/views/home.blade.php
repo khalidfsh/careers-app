@@ -22,12 +22,12 @@
                     <div class="relative">
                         <div class="fixed top-2 end-2">
                             <div class="inline-flex items-center">
-                                <p class="text-sm text-emerald-700 text-opacity-80">{{ $job['end_date'] }}</p>
+                                <p class="text-sm text-violet-950 dark:text-emerald-700 text-opacity-80">{{ $job['end_date'] }}</p>
                                 <svg class="ms-1" width="29" height="29" viewBox="0 0 29 29" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
+                                    <path class="stroke-black dark:stroke-gray-500 fill-violet-950 dark:fill-emerald-700"
                                         d="M14.5 26.5833C21.1734 26.5833 26.5833 21.1734 26.5833 14.5C26.5833 7.82652 21.1734 2.41663 14.5 2.41663C7.82656 2.41663 2.41667 7.82652 2.41667 14.5C2.41667 21.1734 7.82656 26.5833 14.5 26.5833Z"
-                                        fill="#01775D" fill-opacity="0.28" stroke="black" stroke-opacity="0.28"
+                                         fill-opacity="0.28" stroke="black" stroke-opacity="0.28"
                                         stroke-width="2" stroke-linejoin="round" />
                                     <path d="M14.5051 7.24988L14.5043 14.5052L19.6273 19.6282" stroke="white"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -51,10 +51,10 @@
                                     <path class="stroke-black dark:stroke-gray-500"
                                         d="M8.83103 32.075C5.58876 33.1381 3.58337 34.6069 3.58337 36.2292C3.58337 39.4738 11.6049 42.1042 21.5 42.1042C31.3951 42.1042 39.4167 39.4738 39.4167 36.2292C39.4167 34.6069 37.4113 33.1381 34.169 32.075"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path class="stroke-black dark:stroke-gray-500"
+                                    <path class="stroke-black dark:stroke-gray-500 fill-violet-950 dark:fill-emerald-700"
                                         d="M21.5 34.2707C21.5 34.2707 33.1458 25.9517 33.1458 16.3341C33.1458 9.47606 27.9318 3.9165 21.5 3.9165C15.0682 3.9165 9.85418 9.47606 9.85418 16.3341C9.85418 25.9517 21.5 34.2707 21.5 34.2707Z"
-                                        fill="#01775D" fill-opacity="0.28" stroke-width="2" stroke-linejoin="round" />
-                                    <path
+                                        fill-opacity="0.28" stroke-width="2" stroke-linejoin="round" />
+                                    <path 
                                         d="M21.5 21.5417C23.9738 21.5417 25.9792 19.3497 25.9792 16.6458C25.9792 13.942 23.9738 11.75 21.5 11.75C19.0262 11.75 17.0208 13.942 17.0208 16.6458C17.0208 19.3497 19.0262 21.5417 21.5 21.5417Z"
                                         fill="#24315B" stroke="white" stroke-width="2" stroke-linejoin="round" />
                                 </svg>
