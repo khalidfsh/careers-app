@@ -1,4 +1,5 @@
 {
+    "Kingdom of Saudi Arabia": "المملكة العربية السعودية",
     "(and :count more error)": "(و :count خطأ إضافي)",
     "(and :count more errors)": "(و :count أخطاء إضافية)",
     "A new verification link has been sent to the email address you provided in your profile settings.": "تم إرسال رابط تحقق جديد إلى عنوان البريد الإلكتروني الذي قمت بتعيينه في إعدادات الملف الشخصي.",
@@ -13,6 +14,8 @@
     "Administrator users can perform any action.": "المدراء بإمكانهم تنفيذ أي إجراء.",
     "All of the people that are part of this team.": "جميع الأشخاص الذين هم جزء من هذا الفريق.",
     "All rights reserved.": "جميع الحقوق محفوظة.",
+    "Terms of use": "شروط الاستخدام",
+    "Privacy policy": "سياسة الخصوصية",
     "Already registered?": "لديك حساب مسبقا؟",
     "API Token": "رمز API",
     "API Token Permissions": "أذونات رمز API",
@@ -271,6 +274,14 @@
     "Fill out your general information first.": "املأ معلوماتك العامة أولاً.",
     "Document": "المستند",
     "Document File": "ملف المستند",
-    "Apply now": "تقدم الآن"
+    "Apply now": "تقدم الآن",
+    "Copyright": " ",
+    "Ha'il Heath Cluster": "التجمع الصحي بمنطقة حائل",
+
+
+    "Built with": "تم بناء الموقع بـ",
+    "by": "بواسطة",
+    "In": "في",
+    "KSA": "المملكة العربية السعودية"
 
 }
