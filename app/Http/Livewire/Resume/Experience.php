@@ -88,7 +88,7 @@ class Experience extends Component
         } else {
             // Otherwise, it's a create operation
             $experience = new ExperienceModel($this->state);
-            auth()->user()->resume->qualifications()->save($experience);
+            auth()->user()->resume->experiences()->save($experience);
         }
 
         //flash success
