@@ -23,6 +23,8 @@ class Resume extends Model
         'is_male',
         'birth_date',
         'address',
+        'skills',
+        'languages',
     ];
 
     public function user()
@@ -44,9 +46,4 @@ class Resume extends Model
     {
         return $this->hasMany(Course::class, 'resume_id');
     }
-
-// public function skills()
-// {
-//     return $this->hasMany(Skill::class);
-// }
 }

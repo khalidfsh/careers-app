@@ -56,4 +56,32 @@ return [
         // 'internship' => 'job.internship',
         // 'volunteer' => 'job.volunteer',
     ],
+
+    'languages' => [
+        'arabic' => 'language.arabic',
+        'english' => 'language.english',
+        'chinese' => 'language.chinese',
+        'french' => 'language.french',
+        'spanish' => 'language.spanish',
+        'german' => 'language.german',
+        'italian' => 'language.italian',
+        'portuguese' => 'language.portuguese',
+        'russian' => 'language.russian',
+        'turkish' => 'language.turkish',
+        'japanese' => 'language.japanese',
+        'korean' => 'language.korean',
+        'hindi' => 'language.hindi',
+        'bengali' => 'language.bengali',
+        'punjabi' => 'language.punjabi',
+        'urdu' => 'language.urdu',
+    ],
+
+    'language_levels' => [
+        1 => 'language.level.basic',
+        2 => 'language.level.conversational',
+        3 => 'language.level.intermediate',
+        4 => 'language.level.advanced',
+        5 => 'language.level.fluent',
+        6 => 'language.level.native',
+    ],
 ];

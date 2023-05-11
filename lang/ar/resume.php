@@ -26,6 +26,8 @@ return [
     'experince_description' => 'يرجى إدخال خبراتك العملية.',
     'course_name' => 'الدورات التدريبية',
     'course_description' => 'يرجى إدخال دوراتك التدريبية والشهادات.',
+    'skill_name' => 'المهارات واللغات',
+    'skill_description' => 'يرجى إدخال مهاراتك ولغاتك.',
     'start_date' => 'تاريخ البدء',
     'start_date_error' => 'حقل تاريخ البدء مطلوب.',
     'end_date' => 'تاريخ الانتهاء',
@@ -71,4 +73,6 @@ return [
         'description' => 'الوصف',
         'description_error' => 'حقل الوصف مطلوب.',
     ],
+    'skill' => 'المهارة',
+    'skill_place_holder' => 'ادخل مهارة...'
 ];

@@ -24,6 +24,8 @@ return [
     'experince_description' => 'Please enter your experiences.',
     'course_name' => 'Courses',
     'course_description' => 'Please enter your courses and certificates.',
+    'skills_name' => 'Skills & Languages',
+    'skills_description' => 'Please enter your skills and languages.',
     'start_date' => 'Start Date',
     'start_date_error' => 'Start Date field is required.',
     'end_date' => 'End Date',
@@ -69,4 +71,6 @@ return [
         'institution_error' => 'Institute field is required.',
         'is_current' => 'I still study in this institute',
     ],
+    'skill' => 'Skill',
+    'skill_place_holder' => 'Enter a skill...'
 ];

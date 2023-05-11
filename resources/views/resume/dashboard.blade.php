@@ -27,6 +27,8 @@
             @livewire('resume.experience')
             <x-section-border />
             @livewire('resume.course')
+            <x-section-border />
+            @livewire('resume.skill')
         </div>
     </div>
 </x-app-layout>
