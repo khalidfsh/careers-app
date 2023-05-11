@@ -16,7 +16,7 @@
                             <x-input class="block w-full dark:text-gray-50" id="skill" type="text"
                                 wire:model.defer="skill" placeholder="{{ __('resume.skill_place_holder') }}" />
                             <button class="btn btn-square btn-ghost" wire:click='addSkill'>
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                                <svg class="w-10 stroke-violet-700 dark:stroke-emerald-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path>
                                 </svg>
@@ -59,7 +59,7 @@
                             </x-select>
 
                             <button class="btn btn-square btn-ghost" wire:click='addLanguage'>
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                                <svg class="w-10 stroke-violet-700 dark:stroke-emerald-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path>
                                 </svg>
