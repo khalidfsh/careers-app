@@ -19,9 +19,9 @@
         <p>{{ __('Kingdom of Saudi Arabia') }}</p>
     </div>
     {{-- built with love --}}
-    <p class="inline-flex text-xs ">
+    <p class="inline-flex text-xs leading-none ">
         {{ __('Built with') }}<span class="text-red-500">❤</span> {{ __('In') }} {{ __('KSA') }} 🇸🇦,
-        <a class="link link-hover" href="https://www.github.com/khalidfsh">{{ __('by') }} {{ __('khalidfsh') }}
+        <a class="link link-primary dark:link-secondary hover:decoration-4" href="https://www.github.com/khalidfsh">{{ __('by') }} {{ __('khalidfsh') }}
         </a>
     </p>
 
