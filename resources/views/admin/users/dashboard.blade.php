@@ -63,8 +63,10 @@
                 <x-datatable-tr iteration="{{ $loop->iteration }}">
                     <x-datatable-td :wrap=false>
                         <div class="flex items-center gap-1">
-                            <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}"
-                                class="h-14 w-14 mask mask-squircle object-cover" />
+                            @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}"
+                                    class="h-14 w-14 mask mask-squircle object-cover" />
+                            @endif
                             <div class="flex-wrap ">
                                 <div class="text-auto text-gray-800 dark:text-gray-100">
                                     {{ $user->name }} {{ $user->last_name }}
@@ -112,7 +114,7 @@
                                                 wire:click="assignViewerRole({{ $user->id }})">{{ __('Assign viewer role') }}</a>
                                         </li>
                                         <li><a
-                                            wire:click="clearRole({{ $user->id }})">{{ __('Clear user role') }}</a>
+                                                wire:click="clearRole({{ $user->id }})">{{ __('Clear user role') }}</a>
                                         </li>
                                     </ul>
                                 </div>
