@@ -153,7 +153,8 @@ class Qualification extends Component
 
         // Delete the file from the filesystem
         if ($qualification->document_path) {
-            Storage::disk('private_uploads')->delete($qualification->document_path);
+            $full_document_path = "user_{$user_id}/documents/{$qualification->document_path}";
+            Storage::disk('private_uploads')->delete($full_document_path);
         }
 
         $qualification->delete();
