@@ -40,6 +40,11 @@ class Resume extends Model
         return $this->hasMany(Experience::class, 'resume_id');
     }
 
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'resume_id');
+    }
+
 // public function skills()
 // {
 //     return $this->hasMany(Skill::class);

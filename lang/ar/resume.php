@@ -24,6 +24,8 @@ return [
     'qualification_description' => 'يرجى إدخال مؤهلاتك العلمية.',
     'experince_name' => 'الخبرات العملية',
     'experince_description' => 'يرجى إدخال خبراتك العملية.',
+    'course_name' => 'الدورات التدريبية',
+    'course_description' => 'يرجى إدخال دوراتك التدريبية والشهادات.',
     'start_date' => 'تاريخ البدء',
     'start_date_error' => 'حقل تاريخ البدء مطلوب.',
     'end_date' => 'تاريخ الانتهاء',
@@ -58,5 +60,15 @@ return [
         'company' => 'الشركة',
         'company_error' => 'حقل الشركة مطلوب.',
         'is_current' => 'مازلت أعمل في هذه الشركة',
-    ]
+    ],
+    'course' => [
+        'create' => 'إضافة دورة',
+        'edit' => 'تعديل دورة',
+        'title' => 'الدورة',
+        'title_error' => 'حقل الدورة مطلوب.',
+        'institution' => 'المؤسسة',
+        'institution_error' => 'حقل المؤسسة مطلوب.',
+        'description' => 'الوصف',
+        'description_error' => 'حقل الوصف مطلوب.',
+    ],
 ];

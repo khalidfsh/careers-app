@@ -22,7 +22,8 @@ return [
     'qualification_description' => 'Please enter your qualifications.',
     'experince_name' => 'Experiences',
     'experince_description' => 'Please enter your experiences.',
-
+    'course_name' => 'Courses',
+    'course_description' => 'Please enter your courses and certificates.',
     'start_date' => 'Start Date',
     'start_date_error' => 'Start Date field is required.',
     'end_date' => 'End Date',
@@ -58,5 +59,14 @@ return [
         'company' => 'Company',
         'company_error' => 'Company field is required.',
         'is_current' => 'I still work in this company',
+    ],
+    'course' => [
+        'create' => 'Add Course',
+        'edit' => 'Edit Course',
+        'title' => 'Title',
+        'title_error' => 'Title field is required.',
+        'institution' => 'Institute',
+        'institution_error' => 'Institute field is required.',
+        'is_current' => 'I still study in this institute',
     ],
 ];
