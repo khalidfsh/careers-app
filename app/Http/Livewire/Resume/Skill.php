@@ -55,13 +55,13 @@ class Skill extends Component
         ]);
 
         if (!in_array($this->skill, $this->skills)) {
-            // $this->skills[] = $this->skill;
-            // auth()->user()->resume->update(['skills' => json_encode($this->skills)]);
+            $this->skills[] = $this->skill;
+            auth()->user()->resume->update(['skills' => json_encode($this->skills)]);
 
-            $skill = $this->skill;
+            // $skill = $this->skill;
 
-            // Update the JSON column in the database
-            DB::statement('UPDATE resumes SET skills = JSON_ARRAY_APPEND(skills, "$", ?) WHERE user_id = ?', [$skill, auth()->id()]);
+            // // Update the JSON column in the database
+            // DB::statement('UPDATE resumes SET skills = JSON_ARRAY_APPEND(skills, "$", ?) WHERE user_id = ?', [$skill, auth()->id()]);
 
             // Update the local skills array for the Livewire component
             $this->skills = json_decode(auth()->user()->resume['skills']) ?? [];
