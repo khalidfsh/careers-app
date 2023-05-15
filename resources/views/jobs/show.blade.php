@@ -1,42 +1,56 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between">
-            <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                <x-nav-link class="justify-end text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
-                    href="{{ route('jobs') }}">
-                    {{ __('Jobs') }}
-                </x-nav-link>/ {{ $job['title'] }}
-            </h2>
+            <div class="text-md breadcrumbs">
+                <ul>
+                    <li><a href="{{ route('jobs') }}">
+                        {{ __('Jobs') }}
+                    </a>
+                </li>
+                  <li>{{ $job['title'] }}</li> 
+                </ul>
+            </div>
+
             {{-- TODO: apply page --}}
-            <x-nav-link class="justify-end text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
-                href="#">
-                {{ __('job.apply') }}
-            </x-nav-link>
+            <div class="flex justify-end">
+                <div class="btn btn-md btn-outline btn-secondary glass shadow-md rounded-full px-8 py-2 text-sm font-semibold text-gray-900 dark:text-white"
+                    {{-- onclick="window.location.href='{{ route('apply') }}'" --}}>{{ __('Apply now') }}
+                </div>
+            </div>
         </div>
     </x-slot>
 
     <div class="container mx-auto px-4 pt-4 dark:text-white">
         <div class="bg-white px-4 py-5 shadow dark:bg-gray-800 sm:rounded-md sm:p-6">
             <div class="flex justify-between">
-                <h2 class="mb-2 text-2xl font-bold text-gray-700 dark:text-gray-400">{{ __('job.description') }}</h2>
+                <h2 class="mb-2 text-2xl font-bold text-gray-600 dark:text-gray-500">{{ __('job.description') }}</h2>
                 @if (!empty($job['type']))
-                    <p>{{ __('job.' . $job['type']) }}</p>
+                    <p class="font-black text-gray-900 dark:text-gray-200">{{ __('job.' . $job['type']) }}</p>
                 @endif
-
             </div>
-            <p class="mt-4">{!! nl2br(e($job['description'])) !!}</p>
+
+            <p class="font-base text-gray-900 dark:text-gray-200">{!! nl2br(e($job['description'])) !!}</p>
         </div>
 
         <div class="mt-4 bg-white px-4 py-5 shadow dark:bg-gray-800 sm:rounded-md sm:p-6">
-            <div class="mb-8 grid grid-cols-2 gap-4">
-                <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.location') }}:</strong>
-                    {{ $job['location'] ?? '' }}</p>
-                <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.department') }}:</strong>
+            <h2 class="mb-2 text-xl font-bold text-gray-600 dark:text-gray-500">{{ __('job.details') }}</h2>
+            <div class="mb-2 grid grid-cols-2 gap-4">
+                @if (!empty($job['category']))
+                <p class="text-black dark:text-white"><strong class="text-gray-700 dark:text-gray-400">{{ __('job.department') }}:</strong>
                     {{ __('job.'.$job['category']) ?? '' }}</p>
-                <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.salary') }}:</strong>
+                @endif
+                @if (!empty($job['location']))
+                <p class="text-black dark:text-white"><strong class="text-gray-700 dark:text-gray-400">{{ __('job.location') }}:</strong>
+                    {{ $job['location'] ?? '' }}</p>
+                @endif
+                @if (!empty($job['salary']))
+                <p class="text-black dark:text-white"><strong class="text-gray-700 dark:text-gray-400">{{ __('job.salary') }}:</strong>
                     {{ $job['salary'] ? '~ ' . $job['salary'] . ' ' . __('SAR')  : '' }}</p>
-                <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.number_of_positions') }}:</strong>
+                @endif
+                @if (!empty($job['number_of_positions']))
+                <p class="text-black dark:text-white"><strong class="text-gray-700 dark:text-gray-400">{{ __('job.number_of_positions') }}:</strong>
                     {{ $job['number_of_positions'] ?? '' }}</p>
+                @endif
                 {{-- <p class="text-gray-700 dark:text-gray-400"><strong>{{ __('job.start_date') }}:</strong>
                     {{ $job['start_date'] }}</p>
                 <p class="text-gray-700 dark:text-gray-400"><strong>{{ __('job.end_date') }}:</strong>
@@ -78,7 +92,7 @@
 
             <!-- Qualifications -->
 
-            <ul class="mb-2 list-disc px-8">
+            <ul class="mb-2 list-disc px-8 text-black dark:text-white">
                 @if ($qualifications)
                     @foreach ($qualifications as $qualification)
                         <li>{{ __('resume.qualification.types.' . $qualification) }}
@@ -103,7 +117,7 @@
             </ul>
             <!-- Specializations -->
             <h3 class="mt-2 mb-2 text-md text-gray-700 dark:text-gray-400">{{ __('job.specializations') }}</h3>
-            <ul class="list-disc px-8">
+            <ul class="list-disc px-8 text-black dark:text-white">
                 @if (!empty($specializations))
                     @foreach ($specializations as $specialization)
                         <li>{{ ucfirst($specialization) }}</li>
@@ -116,7 +130,7 @@
 
             <h3 class="mt-2 mb-2 text-md text-gray-700 dark:text-gray-400">{{ __('job.extra_requirements') }} </h3>
             <!-- Extra Requirements -->
-            <ul class="mb-8 list-disc px-8">
+            <ul class="mb-8 list-disc px-8 text-black dark:text-white">
                 @if (!empty($requirements))
 
                     @foreach ($requirements as $requirement)
@@ -128,7 +142,48 @@
 
 
             </ul>
+            {{-- TODO: apply page --}}
+            <div class="justify-center flex">
+                <div class="btn btn-wide btn-outline btn-secondary glass shadow-md rounded-full text-lg font-semibold text-gray-900 dark:text-white"
+                        {{-- onclick="window.location.href='{{ route('apply') }}'" --}}>{{ __('Apply now') }}
+                </div>
+            </div>
         </div>
+
 
     </div>
 </x-app-layout>
+
+<script>
+    function countdown(endDate) {
+        return {
+            days: 0,
+            hours: 0,
+            minutes: 0,
+            seconds: 0,
+            init() {
+                this.calculateCountdown(endDate);
+                setInterval(() => {
+                    this.calculateCountdown(endDate);
+                }, 1000);
+            },
+            calculateCountdown(endDate) {
+                const now = new Date();
+                const targetDate = new Date(endDate);
+                const remainingTime = targetDate - now;
+
+                if (remainingTime > 0) {
+                    this.days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+                    this.hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    this.minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                    this.seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+                } else {
+                    this.days = 0;
+                    this.hours = 0;
+                    this.minutes = 0;
+                    this.seconds = 0;
+                }
+            },
+        };
+    }
+</script>

@@ -83,5 +83,6 @@ return [
     'job_management' => 'إدارة الوظائف',
     'job_management_description' => 'وصف إدارة الوظائف',
     'no_jobs' => 'لم يتم العثور على وظائف.',
+    'details' => 'المعلومات',
     
 ];

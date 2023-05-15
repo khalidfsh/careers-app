@@ -82,4 +82,5 @@ return [
     'job_management' => 'Job Management',
     'job_management_description' => 'Job Management Description',
     'no_jobs' => 'No jobs found.',
+    'details' => 'Details',
 ];
