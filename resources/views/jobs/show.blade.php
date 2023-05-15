@@ -37,11 +37,34 @@
                     {{ $job['salary'] ? '~ ' . $job['salary'] . ' ' . __('SAR')  : '' }}</p>
                 <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.number_of_positions') }}:</strong>
                     {{ $job['number_of_positions'] ?? '' }}</p>
-                <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.start_date') }}:</strong>
+                {{-- <p class="text-gray-700 dark:text-gray-400"><strong>{{ __('job.start_date') }}:</strong>
                     {{ $job['start_date'] }}</p>
-                <p><strong class="text-gray-700 dark:text-gray-400">{{ __('job.end_date') }}:</strong>
-                    {{ $job['end_date'] }}</p>
+                <p class="text-gray-700 dark:text-gray-400"><strong>{{ __('job.end_date') }}:</strong>
+                    {{ $job['end_date'] }}</p> --}}
+                
             </div>
+            <div class="text-gray-700 dark:text-gray-400" x-data="countdown('{{ $job['end_date'] }}')" x-init="init()">
+                <strong>{{ __('Remaining time') }}:</strong>
+                <div class="flex gap-5 start-10">
+                    <div>
+                        <span class="font-mono text-xl text-black dark:text-white" x-text="days"></span>
+                        {{ __('days') }}
+                    </div>
+                    <div>
+                        <span class="font-mono text-xl text-black dark:text-white" x-text="hours"></span>
+                        {{ __('hours') }}
+                    </div>
+                    <div>
+                        <span class="font-mono text-xl text-black dark:text-white" x-text="minutes"></span>
+                        {{ __('min') }}
+                    </div>
+                    <div>
+                        <span class="font-mono text-xl text-black dark:text-white" x-text="seconds"></span>
+                        {{ __('sec') }}
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
 
